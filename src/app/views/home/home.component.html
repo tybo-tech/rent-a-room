@@ -1,0 +1,57 @@
+<router-outlet></router-outlet>
+
+
+<div class="pop"
+     *ngIf="message">
+  <p>
+    {{message}}
+  </p>
+  <div class="">
+    <span class="material-icons"
+          (click)="message = ''">
+      close
+    </span>
+  </div>
+</div>
+
+
+<div class="overlay"
+     *ngIf="loadingUx && loadingUx.Loading">
+  <div class="loader">
+    <div class="card">
+      <mat-spinner></mat-spinner>
+      <h1 *ngIf="loadingUx.Message">
+        {{loadingUx.Message}}
+      </h1>
+    </div>
+  </div>
+</div>
+
+<div class="overlay"
+  *ngIf="dialogUx && dialogUx.ShowDialog">
+  <div class="message-dialog">
+    <div class="logo">
+      <img src="assets/images/common/logo.svg"
+           alt="">
+    </div>
+    <div class="icon">
+      <img [src]="dialogUx.IconUrl" alt="">
+    </div>
+    <div class="message">
+      <h1>
+       {{dialogUx.Message}}
+      </h1>
+    </div>
+    <div class="cta">
+      <button class="mat-primary"
+              mat-button
+              color="primary"
+              (click)="actionClicked(dialogUx.CtaNav)">
+        <p>{{dialogUx.CtaLabel}}</p>
+        <span class="material-icons">
+          east
+        </span>
+      </button>
+    </div>
+  </div>
+</div>

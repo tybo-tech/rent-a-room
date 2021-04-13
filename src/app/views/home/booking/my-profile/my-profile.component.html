@@ -1,0 +1,67 @@
+<div class="main">
+  <div *ngIf="user"
+       class="success-modal">
+    <div class="modal-header">
+      <div class="back-btn">
+        <span class="material-icons"
+              (click)="back()">
+          chevron_left
+        </span>
+      </div>
+      <h1>
+        My profile
+      </h1>
+    </div>
+    <div class="summary">
+      <div class="item">
+        <img *ngIf="user.Dp"
+             [src]="user.Dp"
+             alt=""
+             class="user-dp">
+        <img *ngIf="!user.Dp"
+             src="assets/images/common/profile-user.svg"
+             alt=""
+             class="user-dp">
+      </div>
+      <div class="item">
+        <div class="header">
+          <h1>
+            {{user.Name}} {{user.Surname}}
+            <span>
+              {{user.UserType}} since {{user.CreateDate | date: 'mediumDate'}}
+            </span>
+          </h1>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="data">
+          <h1 class="label">Email</h1>
+          <h1 class="value"> {{user.Email}}</h1>
+        </div>
+      </div>
+      <div class="item">
+        <div class="data">
+          <h1 class="label">Phone</h1>
+          <h1 class="value"> {{user.PhoneNumber}}</h1>
+        </div>
+      </div>
+      <div class="item">
+        <div class="data">
+          <h1 class="label">Address</h1>
+          <h1 class="value">Not set</h1>
+        </div>
+      </div>
+      <div class="item"
+           (click)="back()"
+           *ngIf="user.UserType === 'Customer'">
+        <div class="name">
+          <span class="material-icons">
+            chevron_left
+          </span>
+          <b>Discover services</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

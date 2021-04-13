@@ -1,0 +1,24 @@
+<div class="item"
+     *ngIf="product">
+  <div class="img-box">
+    <img src="https://source.unsplash.com/1-nx1QR5dTE"
+         alt="Awesome Sunglasses">
+  </div>
+  <div class="details">
+    <h2>{{product.Name}}<br><span>{{product.CategoryName}}'s Collection</span></h2>
+    <div class="price">{{200 | currency:'R'}}</div>
+    <label>Size</label>
+    <ul>
+      <li>55-14</li>
+      <li>58-14</li>
+      <li>62-14</li>
+    </ul>
+    <label>Colour</label>
+    <ul class="colors">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <a (click)="viewMore(product)">View more</a>
+  </div>
+</div>

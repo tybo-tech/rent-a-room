@@ -1,0 +1,79 @@
+<div class="default-form"
+     *ngIf="address">
+  <div class="form-group">
+    <label for="exampleInputName">Address Line 1</label>
+    <input type="text"
+           class="form-control"
+           id="exampleInputFirstName"
+           placeholder="Address line 1"
+           [(ngModel)]="address.AddressLine1"
+           [ngModelOptions]="{standalone: true}">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputName">Address Line 2</label>
+    <input type="text"
+           class="form-control"
+           id="exampleInputFirstName"
+           placeholder="Address line 2"
+           [(ngModel)]="address.AddressLine2"
+           [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputName">Address Line 3</label>
+    <input type="text"
+           class="form-control"
+           id="exampleInputFirstName"
+           placeholder="Address line 3"
+           [(ngModel)]="address.AddressLine3"
+           [ngModelOptions]="{standalone: true}">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputName">City</label>
+    <input type="text"
+           class="form-control"
+           id="exampleInputFirstName"
+           placeholder="City"
+           [(ngModel)]="address.City"
+           [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputName">Province</label>
+    <!-- <input type="text"
+           class="form-control"
+           id="exampleInputFirstName"
+           placeholder="Province"
+           [(ngModel)]="address.Province"
+           [ngModelOptions]="{standalone: true}"> -->
+    <select [(ngModel)]="address.Province"
+            name="provinceSelect"
+            (change)="valueChange($event)">
+      <option [ngValue]="undefined"
+              disabled> Select Province </option>
+      <option *ngFor="let province of provinces"
+              [ngValue]="province"> {{province}} </option>
+
+    </select>
+
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputName">Postal Code</label>
+    <input type="text"
+           class="form-control"
+           id="exampleInputFirstName"
+           placeholder="Postal code"
+           [(ngModel)]="address.PostalCode"
+           [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <button mat-button
+            color="primary"
+            class="mat-primary"
+            [disabled]="!address.AddressLine1 || !address.City || !address.PostalCode"
+            (click)="save()">
+      Save and Continue
+    </button>
+  </div>
+</div>

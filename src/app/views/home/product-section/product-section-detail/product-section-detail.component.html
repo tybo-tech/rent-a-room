@@ -1,0 +1,76 @@
+<div class="home-container"
+     *ngIf="product">
+  <app-home-toolbar-navigation [showBag]="true"></app-home-toolbar-navigation>
+  <div class="content">
+    <div class="col-1-of-2">
+      <div class="product-images">
+        <div class="main-image">
+          <img src="assets/images/common/place-holder-image.svg"
+               alt="">
+        </div>
+        <div class="col-1-of-1">
+          <div *ngFor="let image of [1,1,1]">
+            <img src="assets/images/common/place-holder-image.svg"
+                 alt="">
+          </div>
+        </div>
+      </div>
+      <div class="product-information">
+        <h1 class="h1">
+          {{product.Name}}
+        </h1>
+        <h1 class="h6">
+          {{product.Description}}
+        </h1>
+        <div class="col-1-of-2 product-info">
+          <div>
+            <h1 class="h4">Price: <span class="value">{{product.UnitPrice | currency:'R'}}</span></h1>
+          </div>
+          <div>
+            <h1 class="h4">Total Price: <span class="value"
+                    *ngIf="totalPrice">{{totalPrice | currency:'R'}}</span></h1>
+          </div>
+          <div>
+            <h1 class="h4">Size:</h1>
+            <input type="number"
+                   class="form-control"
+                   id="exampleInputFirstName"
+                   [(ngModel)]="quantity"
+                   placeholder="Enter quantity">
+          </div>
+          <div>
+            <label>
+              <h1 class="h4">Color:</h1>
+            </label>
+            <ul class="colors">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div>
+            <h1 class="h4">Quantity:</h1>
+            <input type="number"
+                   class="form-control"
+                   id="exampleInputFirstName"
+                   [(ngModel)]="quantity"
+                   placeholder="Enter quantity">
+          </div>
+          <div>
+            <button class="mat-primary add-to-cart"
+                    mat-button
+                    color="primary">
+              Add to cart
+            </button>
+          </div>
+          <div>
+            <h1 class="h4"><img src="assets/images/common/like.svg"
+                   alt=""> Add to favorites</h1>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

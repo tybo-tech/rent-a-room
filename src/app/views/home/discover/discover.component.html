@@ -1,0 +1,43 @@
+<div>
+
+  <app-home-nav [showNav]="true" (navAction)="tab($event)"></app-home-nav>
+
+  <div class="cards" *ngIf="experiences">
+
+    <div class="card" *ngFor="let item of experiences" (click)="view(item)">
+      <div class="image">
+        <img *ngIf="item.FeaturedImageUrl" [src]="item.FeaturedImageUrl" alt="">
+      </div>
+
+      <div class="details">
+        {{item.Name}}
+        <span>
+          {{item.RegularPrice  | currency:'R'}}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="menu">
+    <div class="item">
+      <a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+
+        🏠 Home
+      </a>
+    </div>
+
+    <div class="item">
+      <a routerLink="/my-bookings" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        📅 My Bookings
+      </a>
+    </div>
+    <div class="item">
+      <a routerLink="/my-profile" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+
+        👤 My Profile
+      </a>
+    </div>
+  </div>
+</div>

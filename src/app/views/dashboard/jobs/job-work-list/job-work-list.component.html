@@ -1,0 +1,73 @@
+<div class="main-list">
+
+  <div class="create-cta">
+    <div class="">
+      <h1>
+        Job work items ({{jobWorks?.length || 0}})
+      </h1>
+    </div>
+    <div class="action">
+      <input type="search" placeholder="Filter by Job Name">
+    </div>
+    <div class="action">
+      <button mat-button class="mat-primary sec" type="button" (click)="add()">
+        Add work item
+      </button>
+    </div>
+  </div>
+  <div class="" *ngIf="jobWorks">
+    <div class="headers">
+      <div class="item">
+        Tittle
+      </div>
+      <div class="item">
+        Total Cost
+      </div>
+      <div class="item">
+        Due Date
+      </div>
+      <div class="item">
+        Status
+      </div>
+
+    </div>
+    <div class="line-items" *ngFor="let item of jobWorks" (click)="view(item)">
+      <div class="item">
+        <h1>
+          {{item.Tittle}}
+          <span class="date">
+            Created: {{item.CreateDate | date: 'shortDate'}}
+          </span>
+        </h1>
+      </div>
+      <div class="item">
+        <h1>
+          {{item.TotalCost  | currency:'R'}}
+        </h1>
+      </div>
+      <div class="item">
+        <h1 *ngIf="item.StartDate && item.DueDate">
+          {{item.StartDate | date: 'shortDate'}} - {{item.DueDate | date: 'shortDate'}}
+        </h1>
+        <h1 *ngIf="!item.StartDate ||  !item.DueDate">Not set</h1>
+      </div>
+      <div class="item">
+        <h1>
+          {{item.Status}}
+        </h1>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="overlay" *ngIf="showModal" (click)="closeModal()"></div>
+<div class="modal" *ngIf="showModal">
+  <div class="close" (click)="closeModal()">
+    <span class="material-icons">
+      west
+    </span> {{modalHeading}}
+  </div>
+
+  <app-add-job-work-item [jobWork]="jobWork" (doneAddingJobWork)="doneAddingJobWork($event)"></app-add-job-work-item>
+</div>

@@ -1,0 +1,40 @@
+@import '../../../../assets/styles/color';
+.main{
+  background: $cloud;
+  // height: 90vh;
+  padding: 2em 0;
+  
+}
+
+
+
+.items {
+  padding: .5em 0;
+  margin-top: 5em;
+  background: $white;
+
+  .product-item {
+    display: grid;
+    grid-template-columns: 90% auto;
+    padding: .5em 0;
+    border-bottom: 1px solid $cloud;
+    margin: .5em 0;
+    padding: .75em;
+  }
+
+
+  .totals{
+    padding: 2em 0;
+
+    h3 {
+      font-weight: 500;
+      padding: .2em;
+      font-size: 1em;
+    }
+  }
+}
+
+
+.add-more{
+  background: $secondary !important;
+}

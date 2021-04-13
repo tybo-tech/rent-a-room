@@ -1,0 +1,27 @@
+@import '../../../../../assets/styles/color';
+$table-cols : repeat(7, 14.2854%);
+
+h1 {
+  margin: 1.2em 0;
+}
+
+.warn-img {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 1.5em;
+  overflow: hidden;
+  margin: 02em auto;
+
+  background: $white;
+  border: 7px solid $danger;
+}
+
+.warn-color {
+  border: 7px solid $warn-color;
+}
+.secondary-color {
+  border: 7px solid $secondary;
+}
+.primary-color {
+  border: 7px solid $primary;
+}

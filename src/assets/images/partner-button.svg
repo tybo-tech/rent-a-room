@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="489" height="84" viewBox="0 0 489 84">
+  <g id="partner-button" transform="translate(-5 -335)">
+    <path id="Path_1671" data-name="Path 1671" d="M6.7,0H482.3C486,0,489,4.088,489,9.13V74.87c0,5.043-3,9.13-6.7,9.13H6.7C3,84,0,79.912,0,74.87V9.13C0,4.088,3,0,6.7,0Z" transform="translate(5 335)" fill="#ebebeb"/>
+    <text id="Become_our_partner" data-name="Become our partner" transform="translate(75 391)" fill="#2f3542" font-size="38" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">Become our partner</tspan></text>
+    <path id="network" d="M34.728,0A4.252,4.252,0,0,0,30.99,6.279l-6.966,6.966a5.632,5.632,0,0,0-6.942,0L11.647,7.809a2.8,2.8,0,0,0,.4-1.431A2.835,2.835,0,1,0,9.213,9.213a2.8,2.8,0,0,0,1.431-.4l5.435,5.435a5.633,5.633,0,0,0,0,6.942L7.1,30.165a4.209,4.209,0,1,0,.886,1.118l9.092-9.092a5.637,5.637,0,0,0,2.763,1.147v7.2a4.252,4.252,0,1,0,1.417,0v-7.2a5.636,5.636,0,0,0,2.763-1.147l5.435,5.435a2.8,2.8,0,0,0-.4,1.432,2.835,2.835,0,1,0,2.835-2.835,2.8,2.8,0,0,0-1.431.4L25.027,21.19a5.633,5.633,0,0,0,0-6.942l6.85-6.85A4.249,4.249,0,1,0,34.728,0Z" transform="translate(17 358)"/>
+  </g>
+</svg>

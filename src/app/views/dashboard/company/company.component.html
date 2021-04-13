@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="success-modal">
+    <div class="modal-header">
+      <div class="back-btn">
+        <span class="material-icons"
+              (click)="back()">
+          chevron_left
+        </span>
+      </div>
+      <h1>
+        {{modalHeading}}
+      </h1>
+    </div>
+    <div class="main-list">
+      <div class="more">
+        <app-add-company [company]="company"></app-add-company>
+      </div>
+    </div>
+  </div>
+</div>
+

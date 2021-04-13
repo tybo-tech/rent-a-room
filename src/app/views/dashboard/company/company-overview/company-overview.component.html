@@ -1,0 +1,52 @@
+<div class="main">
+  <div class="success-modal">
+    <div class="modal-header">
+      <div class="back-btn">
+        <span class="material-icons"
+              (click)="back()">
+          chevron_left
+        </span>
+      </div>
+      <h1>
+        Company overview
+      </h1>
+    </div>
+    <div class="summary">
+      <div class="header">
+        <h1>Hello, {{user.Name}} {{user.Surname}}
+          <span>
+            Welcome to your account overview
+          </span>
+        </h1>
+      </div>
+      <span *ngIf="company && !company.BankAccNo">
+        <div class="display" (click)="view(company)">
+          <span class="material-icons">
+            account_balance
+          </span>
+          <h1 class="heading">
+            Account details
+            <span>Please enter your account details for payments from Cervidae.co.za</span>
+          </h1>
+          <span class="material-icons">
+            keyboard_arrow_right
+          </span>
+        </div>
+      </span>
+      <span *ngIf="addressList.length === 0">
+        <div class="display" (click)="toAddress()">
+          <span class="material-icons">
+            add_location
+          </span>
+          <h1 class="heading">
+            Your address
+            <span>please enter your account details for payments from Cervidae.co.za</span>
+          </h1>
+          <span class="material-icons">
+            keyboard_arrow_right
+          </span>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>

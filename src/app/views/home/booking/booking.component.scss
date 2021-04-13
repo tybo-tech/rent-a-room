@@ -1,0 +1,197 @@
+@import '../../../../assets/styles/color';
+
+.product {
+  padding: .5em;
+  margin: 0;
+  margin-bottom: 4em;
+  width: 35%;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 4em;
+    margin-top: 3.8em;
+    width: 100%;
+  }
+
+  .main-image {
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    .back {
+      position: absolute;
+      width: 1em;
+      padding: .4em;
+      left: 1em;
+      top: 1em;
+      height: 2em;
+      color: $white;
+      background: none;
+
+      .material-icons {
+        margin: 0;
+        padding: 0;
+        top: -2px;
+        left: 0;
+        color: $black;
+        box-shadow: $box-shadow;
+        background: $cloud;
+
+
+      }
+    }
+  }
+
+  .product-information {
+    padding: 0;
+
+    h1 {
+      background: $white;
+      font-size: 1em;
+      padding: 1em;
+
+      span {
+        display: block;
+        color: $primary-purple;
+      }
+
+      .description {
+        color: $darker-grey;
+        font-weight: 400;
+      }
+    }
+
+    .booking {
+      background: $white;
+      margin: .8em 0;
+      padding: .8em;
+
+      label {
+        display: block;
+      }
+
+      input {
+        width: 100%;
+        padding: .4em;
+        border: 1px solid $darker-grey;
+      }
+    }
+
+    .action {
+      @media only screen and (max-width: 600px) {
+        position: fixed;
+        width: 100%;
+        height: 2.5em;
+        bottom: 0;
+        padding: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+
+.times {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  margin-bottom: 3em;
+
+  .time {
+    border: 1px solid $primary;
+    text-align: center;
+    margin: .4em;
+    font-size: .8em;
+  }
+
+  .active {
+    background: $primary;
+    color: $white;
+  }
+}
+
+
+.mosdal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  background: $cloud;
+}
+
+
+.no-charge,
+.no-charge-modal {
+  position: fixed;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.89);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.no-charge-modal {
+  z-index: 1000;
+  background: $white;
+  height: 60%;
+  top: 40%;
+  animation: moveInButton .2s ease-out 0s;
+  animation-fill-mode: backwards;
+
+  .image {
+    text-align: center;
+
+    img {
+      width: 40%;
+      padding: 1em;
+    }
+  }
+
+  h1 {
+    color: $danger;
+    font-size: 1.2em;
+    padding: 1em 2em;
+
+    span {
+      color: $primary;
+      font-weight: 500;
+    }
+  }
+
+  .ok {
+    margin: 1em auto;
+    width: 96%;
+    padding: .7em;
+    text-align: center;
+    color: $white;
+    background: $primary;
+  }
+}
+
+.tarvellers {
+  border: 1px solid $darker-grey;
+  padding: .2em .5em;
+  text-align: center;
+  font-weight: 500;
+}
+
+.tiles {
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
+
+  .tile {
+    width: 5em;
+    height: 5em;
+    overflow: hidden;
+    margin: .2em .5em;
+
+    img {
+      height: 5em;
+    }
+  }
+}

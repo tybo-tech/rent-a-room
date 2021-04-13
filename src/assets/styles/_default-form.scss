@@ -1,0 +1,178 @@
+.default-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: $white;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+
+  h1 {
+    &.h1text {
+      font-size: 1rem;
+      color: $darker-grey;
+      font-weight: 400;
+    }
+  }
+
+  .cta {
+    color: $silver;
+    font-weight: 500;
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+      color: $black;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem 0;
+
+    label {
+      font-weight: 600;
+      color: $black;
+      font-size: .85rem;
+
+      span {
+        font-weight: 400;
+        display: block;
+        font-size: .7rem;
+      }
+    }
+
+    input[type=text],
+    [type=email],
+    [type=number],
+    [type=password],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 5px 0;
+      display: inline-block;
+      border: 1px solid $grey;
+      border-radius: $border-radius;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      width: 100%;
+      height: 6rem;
+      display: inline-block;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 1px solid $grey;
+      border-radius: 4px;
+      margin: 8px 0;
+      resize: vertical;
+    }
+
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+      background-color: $primary;
+    }
+
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $primary;
+    }
+
+    .mat-radio-button {
+      margin: 0 1rem;
+      margin-left: 0;
+    }
+
+    .mat-error,
+    .alert,
+    .error {
+      font-weight: 500;
+      font-size: .75rem;
+      text-transform: capitalize;
+      color: $danger;
+      margin: 1rem 0;
+    }
+
+    button {
+      border: none;
+      width: 100%;
+      padding: .5rem;
+      font-weight: 500;
+      font-size: .95rem;
+      cursor: pointer;
+      border-radius: $border-radius;
+
+      @media only screen and (max-width: 600px) {}
+    }
+
+    .mat-icon {
+      color: $darker-grey;
+    }
+
+    .cta {
+      color: $black;
+      margin-top: 1rem;
+
+      a {
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 0.45rem;
+        color: $primary;
+      }
+    }
+
+    .forgot-password {
+
+      .link {
+        background: none;
+        color: $darker-grey;
+        margin: 0rem;
+        display: inline;
+        padding: 0.3em 0.5em;
+        position: relative;
+        top: 0;
+        cursor: pointer;
+        font-weight: 600;
+        font-style: italic;
+        text-decoration: none;
+        float: right;
+      }
+    }
+
+    .upload {
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+
+      .upload-button {
+        background: none;
+        &.image {
+          height: 15rem;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        .material-icons {
+          font-size: 5rem;
+          color: $grey;
+        }
+      }
+    }
+
+  }
+
+  &.sign-in {
+    margin-top: 10rem;
+  }
+
+  &.sign-up {
+    margin-top: 5rem;
+  }
+
+
+
+  @media only screen and (max-width: 600px) {}
+}

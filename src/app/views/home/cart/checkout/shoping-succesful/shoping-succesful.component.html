@@ -1,0 +1,24 @@
+
+<div class="main">
+  
+  <h1>
+    Payment was succesful.
+  </h1>
+  
+  <!-- <app-checkout></app-checkout> -->
+</div>
+
+
+<div class="success-modal done-model" *ngIf="showDone">
+  <h1>
+    <span class="material-icons check">
+      check_circle_outline
+    </span>
+  </h1>
+  <h1>
+    Your booking was successful
+  </h1>
+
+  <button (click)="back()">Home</button>
+  <button (click)="bookings()">Go to my bookings</button>
+</div>

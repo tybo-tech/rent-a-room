@@ -1,0 +1,67 @@
+@import '../../../../assets/styles/color';
+@import '../../../../assets/styles/variables';
+
+.main {
+  background: $white;
+  height: 100vh;
+  animation: playingBacking 150s ease-out .2s infinite;
+  animation-fill-mode: backwards;
+  padding: 1rem;
+}
+
+.logo {
+  text-align: center;
+
+  img {
+    width: 35%;
+    margin: 0 auto;
+    border-radius: .4em;
+  }
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 2rem auto;
+
+  &.heading {
+    font-size: 1.563rem;
+    font-weight: 500;
+
+  }
+
+}
+
+.default-form {
+  padding: 0;
+
+  .col-1-of-2 {
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: .15rem;
+  }
+
+  .form-group {
+    button {
+      display: grid;
+      grid-template-columns: 90% auto;
+
+      p {
+        text-align: left;
+      }
+
+      .material-icons {
+        float: right;
+      }
+    }
+
+    .pointer {
+      position: absolute;
+      z-index: 99;
+      right: .5rem;
+      top: 0.75rem;
+    }
+  }
+}

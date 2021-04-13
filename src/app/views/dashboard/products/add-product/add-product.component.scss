@@ -1,0 +1,95 @@
+@import '../../../../../assets/styles/color';
+
+.create-cta {
+  text-align: left;
+}
+
+
+
+.category-item {
+  margin: 1em 0;
+  border-bottom: 1px solid $cloud;
+  cursor: pointer;
+}
+
+.example-radio-button {
+  display: block;
+  margin: 1em 0;
+  border-bottom: 1px solid $cloud;
+
+  span {
+    position: relative;
+    top: -.4em;
+    left: 1em;
+  }
+}
+
+.mat-form-field-infix {
+  width: 20em !important;
+}
+
+.main-list {
+  background: $white;
+}
+
+.detail {
+  width: 90%;
+  padding: .7em 0;
+
+  select,
+  input {
+    border: 1px solid $input-border;
+    width: 100%;
+  }
+}
+
+.quill {
+  height: 10em;
+}
+
+.create-cta {
+  border: none;
+  padding-left: .5em;
+}
+
+.upload {
+  padding: 1em 0;
+}
+
+
+.preview {
+  img {
+    width: 20%;
+  }
+}
+
+
+.create-cta {
+  display: block;
+  margin-top: 12em;
+
+  .mat-primary {
+    width: 12em;
+  }
+}
+
+.range {
+  background: $cloud;
+  padding: .4em 1em;
+  display: block;
+  margin: .5em 0;
+  border-radius: .2em;
+  cursor: no-drop;
+}
+
+.mat-primary {
+  width: 12em;
+  margin-top: 2em;
+}
+
+.form-section{
+  @media only screen and (max-width: 600px) {
+  
+    padding: 1em;
+  }
+}

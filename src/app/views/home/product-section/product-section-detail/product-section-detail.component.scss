@@ -1,0 +1,151 @@
+.content {
+  margin: 1rem 0;
+}
+
+.product-images {
+  display: grid;
+  grid-template-columns: auto 28%;
+  grid-gap: 1rem;
+  padding: 1rem;
+  padding-top: 0;
+
+  img {
+    width: 100%;
+    margin: 1rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 100%;
+    padding-left: 0;
+
+    img {
+      margin: 0;
+    }
+
+    .col-1-of-1 {
+      grid-template-columns: 33.33% 33.33% 33.33%;
+      overflow-x: scroll;
+    }
+  }
+}
+
+.product-information {
+  padding-right: 2rem;
+
+  .col-1-of-2 {
+    &.product-info {}
+
+  }
+
+  h1 {
+    &.h1 {
+      margin: 1rem 0;
+      font-weight: 600;
+      font-size: 3rem;
+    }
+
+    &.h6 {
+      font-size: 1rem;
+      margin: 0.25rem 0;
+    }
+
+    &.h4 {
+      font-size: 1.063rem;
+      margin: 1rem 0;
+
+      .value {
+        font-size: 1.813rem;
+        font-weight: 500;
+      }
+    }
+
+    img {
+      height: 1.563rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+      &.h1 {
+        margin: 0;
+        font-size: 1.563rem;
+      }
+
+      &.h4 {
+        font-size: 0.813rem;
+
+        .value {
+          font-size: 1.438rem;
+        }
+
+      }
+
+      &.h6 {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  ul {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li {
+    list-style: none;
+    margin: 5px 5px 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: #bbb;
+    transition: 0.7s;
+  }
+
+  ul li:hover {
+    cursor: pointer;
+    color: #333;
+    transition: 0.7s;
+  }
+
+  ul li:first-child {
+    margin-left: 0;
+  }
+
+  ul.colors li {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  ul.colors li:hover {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  ul.colors li:nth-child(1) {
+    background: #27BE45;
+  }
+
+  ul.colors li:nth-child(2) {
+    background: #EE5253;
+  }
+
+  ul.colors li:nth-child(3) {
+    background: #2E86DE;
+  }
+
+  ul.colors li:nth-child(4) {
+    background: #000000;
+    ;
+  }
+
+
+  // button
+  button {
+    &.add-to-cart {
+      margin-top: 3.6rem;
+      width: 11.563rem;
+
+    }
+  }
+}

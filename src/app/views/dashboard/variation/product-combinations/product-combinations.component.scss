@@ -1,0 +1,43 @@
+@import '../../../../../assets/styles/color';
+$table-cols : 25% 25% 25% 25%;
+
+.headers {
+  grid-template-columns: $table-cols;
+}
+
+
+.line-items {
+  grid-template-columns: $table-cols;
+}
+
+.create-cta {
+  text-align: left;
+}
+
+.featured-image {
+  width: 40%;
+}
+
+.gallery {
+  color: $tec;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .8em;
+}
+
+.main-list {
+  background: $white;
+}
+
+.header-link {
+  display: block;
+  color: $primary;
+  background: $white;
+  font-size: .7em;
+  width: 8em;
+  text-align: center;
+  margin-top: .5em;
+  padding: 0;
+  line-height: 1.5;
+  font-weight: 500;
+}

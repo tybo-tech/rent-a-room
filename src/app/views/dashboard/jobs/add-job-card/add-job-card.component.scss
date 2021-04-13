@@ -1,0 +1,27 @@
+@import '../../../../../assets/styles/color';
+@import '../../products/add-product/add-product.component.scss';
+.page-section{
+    // width: 50%;
+    // position: absolute;
+    z-index: 9999;
+}
+
+.overlay{
+    background: $cloud;
+}
+
+.f-icon{
+    width: 4em;
+    margin: 0;
+    padding: .2em;
+    position: relative;
+    top: 1.5em;
+    background: $white;
+    border-radius: 1em;
+}
+
+.hearder-cols{
+    display: grid;
+    // grid-template-columns: 10% auto;
+    padding: 0 4em;
+}

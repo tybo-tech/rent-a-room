@@ -1,0 +1,48 @@
+<div class="main" *ngIf="experience">
+
+  <h3 class="top-header">
+    {{experience.Name}}
+
+    <span class="material-icons back" (click)="back()">
+      chevron_left
+    </span>
+  </h3>
+
+  <div class="form">
+
+    <div class="form-item">
+      <label for="">Experience images</label>
+      <app-images [images]="experience.Images" [user]="user" [experience]="experience"
+      (onUploadFinished)="saveImage($event)" (deleteImageEvent)="deleteImage($event)"
+      (setMianImageEvent)="setMianImage($event)"></app-images>
+    </div>
+    <div class="form-item">
+      <label for="">Experience name</label>
+      <input type="text" name="" id="" [(ngModel)]="experience.Name" placeholder="Enter product name.">
+    </div>
+    <div class="form-item">
+      <label for="name">Catergory</label>
+      <select [(ngModel)]="experience.ParentCategoryName">
+        <option value="Adventure">Adventure</option>
+        <option value="Nature">Nature</option>
+        <option value="Sights-tours">Sights & tours</option>
+        <option value="Luxury">Luxury</option>
+      </select>
+    </div>
+
+    <div class="form-item">
+      <label for="">Price(per person)</label>
+      <input type="number" name="" id="" [(ngModel)]="experience.RegularPrice" placeholder="Enter experience price.">
+    </div>
+
+    <div class="form-item">
+      <label for="">Description</label>
+      <textarea type="text" name="" id="" [(ngModel)]="experience.Description" placeholder="Enter experience description."></textarea>
+    </div>
+
+    <button class="mat-primary" (click)="saveExperience()">Save</button>
+
+  </div>
+
+
+</div>

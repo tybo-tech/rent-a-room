@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // API_URL: 'http://localhost:8200/carvidae-api',
+  API_URL: 'https://cervidae.co.za/api',
+
+  BASE_URL: 'http://localhost:4200',
+  ACCOUNT_TEST_EMAIL: 'john@gmail.com',
+  ACCOUNT_TEST_PASSWORD: 'john@gmail.com',
+  TEST_EMAIL_ACCOUNT: 'john@gmail.com'
 };
 
 /*

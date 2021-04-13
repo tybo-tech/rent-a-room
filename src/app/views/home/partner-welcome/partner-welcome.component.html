@@ -1,0 +1,139 @@
+<div class="main"
+     *ngIf="slides">
+  <div class="logo">
+    <img src="assets/images/common/logo.svg"
+         alt="">
+  </div>
+  <h1 class="heading">
+    Sign up with cervidae
+  </h1>
+  <app-carousel [autoPlayDuration]="5000"
+                animation="slide"
+                [slides]="slides"></app-carousel>
+
+  <!-- enter email form  -->
+  <form class="default-form"
+        *ngIf="!showMore && !user"
+        [formGroup]="rForm">
+    <div class="form-container">
+      <div class="form-group">
+        <input type="email"
+               class="form-control"
+               formControlName="Email"
+               id="exampleInputEmail1"
+               placeholder="Email">
+        <div class="alert"
+             *ngIf="!rForm.controls['Email'].valid  && rForm.controls['Email'].touched ">
+          Email is required
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="mat-primary"
+                mat-button
+                color="primary"
+                [disabled]="!rForm.valid"
+                (click)="continue(rForm.value)">
+          <p>Next</p>
+          <span class="material-icons">
+            east
+          </span>
+        </button>
+        <div class="cta">
+          Already have an account?
+          <a routerLink="/sign-in"> Sign in</a>
+        </div>
+      </div>
+    </div>
+  </form>
+  <form class="default-form"
+        *ngIf="showMore"
+        [formGroup]="rForm2">
+    <div class="form-container">
+      <div class="form-group">
+        <input type="email"
+               class="form-control"
+               formControlName="Email"
+               id="exampleInputEmail1"
+               placeholder="Email">
+        <div class="alert"
+             *ngIf="!rForm2.controls['Email'].valid  && rForm2.controls['Email'].touched ">
+          Email is required
+        </div>
+      </div>
+      <span class="col-1-of-2">
+        <div class="form-group">
+          <input type="text"
+                 class="form-control"
+                 formControlName="Name"
+                 id="exampleInputFirstName"
+                 placeholder="First Name">
+          <div class="alert"
+               *ngIf="!rForm2.controls['Name'].valid  && rForm2.controls['Name'].touched ">
+            Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text"
+                 class="form-control"
+                 formControlName="Surname"
+                 id="exampleInputSurname"
+                 placeholder="Last Name">
+          <div class="alert"
+               *ngIf="!rForm2.controls['Surname'].valid  && rForm2.controls['Surname'].touched ">
+            Surname is required
+          </div>
+        </div>
+      </span>
+      <div class="form-group">
+        <input type="text"
+               mask="(000) 000-0000"
+               placeholder="Contact Number Eg. (000) 000-0000"
+               class="form-control"
+               formControlName="PhoneNumber"
+               id="exampleInputPhoneNumber"
+               maxlength="10">
+        <div class="alert"
+             *ngIf="!rForm2.controls['PhoneNumber'].valid  && rForm2.controls['PhoneNumber'].touched ">
+          PhoneNumber is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">
+          <mat-icon class="pointer"
+                    (click)="hidePassword = !hidePassword">
+            {{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </label>
+        <input type="password"
+               [type]="hidePassword? 'password': 'text'"
+               class="form-control"
+               formControlName="Password"
+               id="exampleInputPassword1"
+               placeholder="Password">
+        <div class="showPassword"
+             (click)="hidePassword = !hidePassword">
+          <div class="alert"
+               *ngIf="!rForm2.controls['Password'].valid && rForm2.controls['Password'].touched ">
+            Password is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="mat-primary"
+                mat-button
+                color="primary"
+                [disabled]="!rForm2.valid"
+                (click)="onSubmit(rForm2.value)"
+                >
+          <p>Sign Up</p>
+          <span class="material-icons">
+            east
+          </span>
+        </button>
+        <div class="cta">
+          Already have an account?
+          <a routerLink="/sign-in"> Sign in</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

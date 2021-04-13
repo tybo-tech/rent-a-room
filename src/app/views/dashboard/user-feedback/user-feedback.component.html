@@ -1,0 +1,30 @@
+<div class="overlay"></div>
+<div class="modal">
+  <div class="head">
+    <h1>
+      {{modalModel.heading}}
+    </h1>
+    <div class="close" (click)="goto()">
+      <span class="material-icons">
+        clear
+      </span>
+    </div>
+  </div>
+
+
+  <div class="body">
+    <p *ngFor="let item of modalModel.body">
+      {{item}}
+    </p>
+  </div>
+<!-- 
+  <div class="image">
+    <img *ngIf="modalModel.img" [src]="modalModel.img" alt="">
+  </div> -->
+
+  <div class="cta">
+    <button mat-button class="mat-primary" type="button" (click)="goto()">
+      {{modalModel.ctaLabel}}
+    </button>
+  </div>
+</div>

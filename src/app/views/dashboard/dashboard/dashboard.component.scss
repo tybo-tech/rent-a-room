@@ -1,0 +1,31 @@
+@import '../../../../assets/styles/color';
+.page-section{
+    width: 100%;
+}
+.user{
+    display: grid;
+    grid-template-columns: 72% 5% auto;
+    background: $white;
+    padding: 1em 2em;
+}
+
+.user-name{
+    padding: .6rem 0;
+    color: $primary;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.body{
+    padding: 0 3em ;
+    padding: 0;
+    max-width: 60em;
+    margin: 0 auto;
+    background: $cloud;
+    height: 100vh;
+}
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $primary !important;
+}

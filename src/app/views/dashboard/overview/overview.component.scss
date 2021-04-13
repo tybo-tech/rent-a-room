@@ -1,0 +1,106 @@
+@import '../../../../assets/styles/color';
+
+.main {
+  background: $cloud;
+  height: 100vh;
+
+}
+
+.user-dp {
+  width: 3em;
+  margin: 1em auto;
+}
+
+h1 {
+  margin: 1.2em 0;
+}
+
+.top {
+  padding: 1em;
+  display: grid;
+  box-shadow: $box-shadow;
+  background: $white;
+  z-index: 1000;
+  grid-template-columns: 60% auto;
+
+  p {
+    text-align: left;
+    padding: .5em;
+  }
+
+  .item {
+      text-align: right;
+    span {
+      top: .3em;
+    }
+  }
+
+}
+
+.company {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 15% auto;
+  background: $white;
+
+  img {
+    width: 100%;
+    margin: 1em;
+    border-radius: .2em;
+  }
+
+  p {
+    text-align: left;
+    padding: 1.5em 2em;
+  }
+}
+
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  background: $white;
+
+  .tab {
+    text-align: center;
+    border: 1px solid $cloud;
+    padding-bottom: .3em;
+
+    span {
+      top: .3em;
+    }
+  }
+}
+
+.tabs-2 {
+  grid-template-columns: repeat(2, 50%);
+  margin-top: 2.5em;
+
+  .tab {
+    background: $primary;
+    color: $white;
+  }
+
+  .sec {
+    background: $secondary;
+  }
+}
+
+.cards {
+  margin-top: .5em;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+
+  .card {
+    .details {
+      background: $cloud;
+    }
+  }
+}
+
+
+.no-data{
+  padding: 3em;
+  text-align: center;
+  color: $darker-grey;
+}

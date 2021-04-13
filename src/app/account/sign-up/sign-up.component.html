@@ -1,0 +1,106 @@
+<div class="">
+  <div class="logo">
+    <img src="assets/images/common/logo.png"
+         alt="">
+    <h1>
+      Create a free {{navigation.Role}}
+      account
+    </h1>
+  </div>
+  <form class="default-form"
+        [formGroup]="rForm">
+    <div class="form-container">
+      <div class="col-1-of-2">
+        <div class="form-group">
+          <label for="exampleInputName">Name</label>
+          <input type="text"
+                 class="form-control"
+                 formControlName="Name"
+                 id="exampleInputFirstName"
+                 placeholder="Enter First Name">
+          <div class="alert"
+               *ngIf="!rForm.controls['Name'].valid  && rForm.controls['Name'].touched ">
+            Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputSurname">Enter Surname</label>
+          <input type="text"
+                 class="form-control"
+                 formControlName="Surname"
+                 id="exampleInputSurname"
+                 placeholder="Enter Surname">
+          <div class="alert"
+               *ngIf="!rForm.controls['Surname'].valid  && rForm.controls['Surname'].touched ">
+            Surname is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPhoneNumber">Contact number</label>
+        <input type="text"
+               mask="(000) 000-0000"
+               placeholder="Enter Number Eg. (000) 000-0000"
+               class="form-control"
+               formControlName="PhoneNumber"
+               id="exampleInputPhoneNumber"
+               maxlength="10">
+        <div class="alert"
+             *ngIf="!rForm.controls['PhoneNumber'].valid  && rForm.controls['PhoneNumber'].touched ">
+          PhoneNumber is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail">Email address</label>
+        <input type="email"
+               class="form-control"
+               formControlName="Email"
+               id="exampleInputEmail"
+               placeholder="Enter email">
+        <div class="alert"
+             *ngIf="!rForm.controls['Email'].valid  && rForm.controls['Email'].touched ">
+          Email is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">
+          Password <mat-icon class="pointer"
+                    (click)="hidePassword = !hidePassword">
+            {{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </label>
+        <input type="password"
+               [type]="hidePassword? 'password': 'text'"
+               class="form-control"
+               formControlName="Password"
+               id="exampleInputPassword1"
+               placeholder="Password">
+        <div class="showPassword"
+             (click)="hidePassword = !hidePassword">
+          <div class="alert"
+               *ngIf="!rForm.controls['Password'].valid && rForm.controls['Password'].touched ">
+            Password is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button mat-button
+                color="primary"
+                class="mat-primary"
+                (click)="onSubmit(rForm.value)"
+                [disabled]="!rForm.valid">
+          Sign up for free
+        </button>
+        <span class="error">{{error}}</span>
+        <div class="cta">
+          Already have an account?
+          <a routerLink="/sign-in"> Sign in</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- <app-home-loader [loader]="showLoader" [message]="'Processing...'"></app-home-loader> -->

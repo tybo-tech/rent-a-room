@@ -1,0 +1,209 @@
+<app-loader [showLoader]="showLoader" *ngIf="showLoader"></app-loader>
+
+<div class="main add-screen">
+
+  <div class="page-section">
+    <h3>
+      <span class="material-icons pointer" (click)="back()">
+        west
+      </span>
+      Creating new invoice {{orderFor}}
+    </h3>
+    <div class="main-list">
+      <div class="form-section">
+        <span class="label">
+          Customer details
+        </span>
+
+
+        <div class="details">
+
+
+          <div class="detail">
+            <button mat-button class="tertiary" type="button" (click)="chooseCustomer()">
+              {{chooseCustomerLabel}}
+            </button>
+          </div>
+
+          <div class="detail">
+            <button mat-button class="mat-primary" type="button" (click)="chooseCustomer()">
+              New customer
+            </button>
+          </div>
+        </div>
+        <div class="details">
+
+          <div class="detail" *ngIf="customer">
+            <label for="name">Customer Name</label>
+            <input type="text" [(ngModel)]="customerName">
+
+          </div>
+          <div class="detail" *ngIf="customer">
+            <label for="name">Customer Surname</label>
+            <input type="text" [(ngModel)]="customer.Surname">
+          </div>
+          <div class="detail" *ngIf="customer">
+            <label for="name">Customer Email</label>
+            <input type="text" [(ngModel)]="customer.Email">
+          </div>
+          <div class="detail" *ngIf="customer">
+            <label for="name">Customer Phone Number</label>
+            <input type="text" [(ngModel)]="customer.PhoneNumber">
+          </div>
+          <div class="detail" *ngIf="customer">
+            <label for="name">Customer Address</label>
+            <input type="search" [(ngModel)]="customer.Address">
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+      <div class="form-section">
+        <span class="label">
+          Invoice details
+        </span>
+
+        <div class="details">
+
+          <div class="detail">
+            <label for="name">Invoice Number</label>
+            <input type="text" [(ngModel)]="orderNo" disabled>
+
+          </div>
+          <div class="detail">
+            <label for="name">Invoice Date</label>
+            <input matInput [matDatepicker]="picker1" [(ngModel)]="invoiceDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </div>
+          <div class="detail">
+            <label for="name">Invoice Due Date</label>
+            <input matInput [matDatepicker]="picker2" [(ngModel)]="invoiceDueDate">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <div class="form-section">
+        <!-- <span class="label">
+          Invoice products/services
+        </span>
+
+        <input type="text" [(ngModel)]="productNameSearch" placeholder="Seach products/Services"> -->
+
+        <span class="label">
+          Invoice items
+        </span>
+        <div class="products">
+          <div class="headers">
+            <div class="item">
+              Item name
+            </div>
+            <div class="item">
+              Price
+            </div>
+            <div class="item">
+              Quantity
+            </div>
+
+            <div class="item">
+              Total
+            </div>
+          </div>
+
+          <div class="line-items" *ngFor="let item of lineItems; let i = index">
+            <div class="item">
+              <a class="link inline" (click)="chooseProduct(i)" *ngIf="!item.ProductName">Choose existing item</a>
+              <a class="link inline" (click)="chooseProduct(i)" *ngIf="!item.ProductName">New item</a>
+              <input type="text" [(ngModel)]="item.ProductName" *ngIf="item.ProductName" disabled>
+            </div>
+            <div class="item">
+              <!-- <input type="number" [(ngModel)]="item.UnitPrice" (change)="calculateTotal(item)" disabled> -->
+              <p class="unit-price">
+                {{item.UnitPrice   | currency:'R'}}
+              </p>
+            </div>
+            <div class="item">
+              <input type="number" [(ngModel)]="item.Quantity" (change)="calculateTotal(item)"
+                [disabled]="!item.ProductName">
+            </div>
+
+            <div class="item">
+              <p>
+                {{item.SubTotal   | currency:'R'}}
+
+                <span class="material-icons" (click)="removeLine(i)">
+                  delete_outline
+                </span>
+              </p>
+            </div>
+          </div>
+          <a class="link" (click)="addLine()">Add line</a>
+
+          <div class="total item">
+            <p>
+              <span class="label">Total: </span>
+              {{Total   | currency:'R'}}
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="form-section">
+        <span class="label">
+          Customer Notes
+        </span>
+
+        <textarea type="text" [(ngModel)]="notes" placeholder="Write notes here">
+          </textarea>
+
+
+      </div>
+      <div class="form-section">
+
+
+        <div class="create-cta">
+          <div class="action">
+            <button mat-button class="mat-primary" type="button" (click)="saveInvoice()">
+              Save Invoice
+            </button>
+            <button mat-button class="mat-primary" type="button" (click)="add()">
+              Print Invoice
+            </button>
+            <button mat-button class="mat-primary" type="button" (click)="add()">
+              Email Invoice
+            </button>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="overlay" *ngIf="showChooseProduct || showChooseCustomer"></div>
+
+<div class="modal choose-products" *ngIf="showChooseProduct">
+  <app-item-selector [items]="productsToChooseFrom" (selectedItemDoneEventEmitter)="itemSelected($event)">
+  </app-item-selector>
+</div>
+
+<div class="modal choose-products" *ngIf="showChooseCustomer">
+  <app-item-selector [items]="users" (selectedItemDoneEventEmitter)="itemSelected($event)">
+  </app-item-selector>
+</div>

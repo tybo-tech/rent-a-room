@@ -1,0 +1,23 @@
+<div class="items" *ngIf="items && items.length">
+  <h1>
+    Choose products
+  </h1>
+  <div *ngFor="let item of items; let i = index" class="item" (click)="selectItem(item)">
+    <div class="image">
+      <img [src]="item.FeaturedImageUrl" alt="">
+    </div>
+
+    <div class="name">
+      <p>
+        {{item.Name}}
+        <span>
+          {{item.RegularPrice   | currency:'R'}}
+        </span>
+        <!-- <span>
+          In Stock: {{item.Quantity}}
+        </span> -->
+      </p>
+    </div>
+
+  </div>
+</div>

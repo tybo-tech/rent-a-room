@@ -1,0 +1,21 @@
+@import '../../../../../assets/styles/color';
+.items {
+  .item {
+    display: grid;
+    grid-template-columns: 14% auto;
+    background: $white;
+    margin: .5em;
+    padding: 0;
+
+    img {
+      width: 100%;
+      margin: 0 auto;
+    }
+    p{
+        font-weight: 600;
+        span{
+            display: block;
+        }
+    }
+  }
+}

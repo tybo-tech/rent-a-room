@@ -1,0 +1,6 @@
+@import '../../../assets/styles/color';
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $primary !important;
+}

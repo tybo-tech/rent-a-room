@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="success-modal">
+    <div class="modal-header">
+      <div class="back-btn">
+        <span class="material-icons"
+              (click)="back()">
+          chevron_left
+        </span>
+      </div>
+      <h1>
+        {{modalHeading}}
+      </h1>
+    </div>
+    <div class="main-list">
+      <div class="more">
+        <app-add-address [address]="address"></app-add-address>
+      </div>
+    </div>
+  </div>
+</div>

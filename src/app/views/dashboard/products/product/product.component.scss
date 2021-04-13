@@ -1,0 +1,37 @@
+@import '../../../../../assets/styles/color';
+
+.page-section {
+  // width: 50%;
+  // position: absolute;
+  z-index: 9999;
+}
+
+.overlay {
+  background: $cloud;
+}
+
+.f-icon {
+  width: 4em;
+  margin: 0;
+  padding: .2em;
+  position: relative;
+  top: 1.5em;
+  background: $white;
+  border-radius: 1em;
+}
+
+.hearder-cols {
+  display: grid;
+  padding: 0 4em;
+
+  @media only screen and (max-width: 600px) {
+    padding: 1em;
+  }
+
+  h3 {
+    @media only screen and (max-width: 600px) {
+      margin: 0;
+      font-size: 1em;
+    }
+  }
+}

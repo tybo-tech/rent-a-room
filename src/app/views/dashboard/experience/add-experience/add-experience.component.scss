@@ -1,0 +1,14 @@
+@import '../../../../../assets/styles/color';
+.main {
+  margin-top: 4em;
+}
+
+.form {
+  width: 100%;
+
+  .form-item {
+      margin-bottom: 1em;
+      padding-bottom: .4em;
+      border-bottom: 1px solid $cloud;
+  }
+}

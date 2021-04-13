@@ -1,0 +1,68 @@
+<div class="main">
+  <h3 class="top-header">
+    <span class="material-icons back" (click)="back()">
+      chevron_left
+    </span>
+    Experience List
+  </h3>
+
+
+  <div class="cards" *ngIf="experiences && experiences.length">
+
+    <div class="card" *ngFor="let experience of experiences" (click)="gotoExperiences(experience)">
+      <div class="image">
+        <img *ngIf="experience.FeaturedImageUrl" [src]="experience.FeaturedImageUrl" alt="">
+      </div>
+
+      <div class="details">
+        {{experience.Name}}
+        <span>
+          {{experience.RegularPrice  | currency:'R'}}
+        </span>
+      </div>
+    </div>
+
+  </div>
+  
+
+  
+
+
+  <div class="footer-btns">
+    <button  (click)="back()"> Back</button>
+    <button  (click)="add()">  Add experience</button>
+  </div>
+  
+  
+  
+  
+  <div class="quick-add" *ngIf="showAdd && newExperience">
+    <div class="form">
+      <h3>
+        Add new experience.
+      </h3>
+  
+  
+      <div class="form-item">
+        <label for="">Experience name</label>
+        <input type="text" name="" id="" [(ngModel)]="newExperience.Name" placeholder="Enter product name.">
+      </div>
+  
+      <div class="form-item">
+        <label for="name">Experience catergory</label>
+        <select [(ngModel)]="newExperience.ParentCategoryName">
+          <option value="Adventure">Adventure</option>
+          <option value="Nature">Nature</option>
+          <option value="Sights-tours">Sights & tours</option>
+          <option value="Luxury">Luxury</option>
+        </select>
+      </div>
+  
+      <div class="form-item">
+        <button (click)="saveExperience()" [disabled]="!newExperience.Name">Next</button>
+        <div class="link" (click)="showAdd = false">Cancel</div>
+      </div>
+    </div>
+  </div>
+  
+</div>

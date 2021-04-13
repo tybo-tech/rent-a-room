@@ -1,0 +1,134 @@
+<div class="main">
+  <div *ngIf="user && company">
+    <div class="top">
+      <p>
+        Hello {{user.Name}}
+      </p>
+
+      <div class="item" (click)="logout()">
+
+        <span class="material-icons">
+          east
+        </span>
+        logout
+      </div>
+    </div>
+
+    <div class="company">
+      <div class="image">
+        <img [src]="company.Dp" alt="">
+      </div>
+      <div class="details">
+        <p>
+          <b>
+            {{company.Name}}
+          </b> <br>
+          {{company.Description}}
+        </p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab" (click)="toProfile('my-profile')">
+        <span class="material-icons">
+          person
+        </span>
+        My Profile
+      </div>
+
+      <div class="tab" (click)="toCompany()">
+        <span class="material-icons">
+          corporate_fare
+        </span>
+        Company
+      </div>
+
+      <div class="tab" (click)="goto('bookings')">
+        <span class="material-icons">
+          date_range
+        </span>
+        Bookings
+      </div>
+    </div>
+    <div class="tabs tabs-2">
+      <div class="tab" (click)="goto('list-experiences')">
+        <span class="material-icons">
+          list
+        </span>
+        Experiences
+      </div>
+
+
+      <div class="tab sec" (click)="add()">
+        <span class="material-icons">
+          add
+        </span>
+        Add experiences
+      </div>
+    </div>
+
+    <div class="gallery">
+
+      <div class="cards" *ngIf="experiences && experiences.length">
+
+        <div class="card" *ngFor="let experience of experiences" (click)="gotoExperiences(experience)">
+          <div class="image">
+            <img *ngIf="experience.FeaturedImageUrl" [src]="experience.FeaturedImageUrl" alt="">
+          </div>
+
+          <div class="details">
+            {{experience.Name}}
+            <span>
+              {{experience.RegularPrice  | currency:'R'}}
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="no-data" *ngIf="!experiences || !experiences.length">
+        <p>
+          The list of experiences your company offers will show here. Tap the add experience button to create new.
+        </p>
+      </div>
+    </div>
+    <div class="summary">
+      <div class="item">
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="quick-add" *ngIf="showAdd && newExperience">
+  <div class="form">
+    <h3>
+      Add new experience.
+    </h3>
+
+
+    <div class="form-item">
+      <label for="">Experience name</label>
+      <input type="text" name="" id="" [(ngModel)]="newExperience.Name" placeholder="Enter product name.">
+    </div>
+
+    <div class="form-item">
+      <label for="name">Experience catergory</label>
+      <select [(ngModel)]="newExperience.ParentCategoryName">
+        <option value="Adventure">Adventure</option>
+        <option value="Nature">Nature</option>
+        <option value="Sights-tours">Sights & tours</option>
+        <option value="Luxury">Luxury</option>
+      </select>
+    </div>
+
+    <div class="form-item">
+      <button (click)="saveExperience()" [disabled]="!newExperience.Name">Next</button>
+      <div class="link" (click)="showAdd = false">Cancel</div>
+    </div>
+  </div>
+</div>

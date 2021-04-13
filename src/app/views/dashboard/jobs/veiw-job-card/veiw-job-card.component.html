@@ -1,0 +1,29 @@
+<div class="main add-screen" *ngIf="job">
+
+  <div class="page-section">
+    <div class="hearder-cols">
+      <!-- <img *ngIf="product.FeaturedImageUrl" [src]="product.FeaturedImageUrl" class="f-icon" alt="">
+      <div class="" *ngIf="!product.FeaturedImageUrl"></div> -->
+      <h3>
+        <span class="material-icons pointer" (click)="back()">
+          west
+        </span>
+        {{heading}}
+      </h3>
+    </div>
+    <div class="main-list">
+      <div class="more">
+        <mat-tab-group class="box-shadow" (selectedTabChange)="onTabChanged($event)" [selectedIndex]="selectedIndex">
+          <mat-tab label="1️⃣ Job Details">
+            <app-add-job-card [job]="job"></app-add-job-card>
+          </mat-tab>
+          <mat-tab label="2️⃣ Job Work items" *ngIf="JobId != 'add'">
+            <app-job-work-list [jobWorks]="job.JobWorks" [jobId]="job.JobId"></app-job-work-list>
+          </mat-tab>
+
+
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

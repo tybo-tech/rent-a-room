@@ -1,0 +1,23 @@
+<div class="main" *ngIf="slides">
+
+  <div class="logo">
+    <img src="assets/images/common/logo.png" alt="">
+  </div>
+
+  <div class="slide"  *ngFor="let item of slides; let i = index" [ngClass]="item.Class"  (click)="select(i)">
+    <img *ngIf="item.Selected" [src]="item.Url" alt="">
+  </div>
+
+  <div class="actions">
+    <div class="action">
+      <button class="skip" (click)="skip()">
+        Skip
+      </button>
+    </div>
+    <div class="action">
+      <button class="" (click)="next()">
+        Next
+      </button>
+    </div>
+  </div>
+</div>

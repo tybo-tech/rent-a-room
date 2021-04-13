@@ -1,0 +1,79 @@
+<div class="main">
+  <div *ngIf="bookings" class="success-modal">
+
+    <div class="modal-header">
+      <div class="back-btn">
+        <span class="material-icons"
+              (click)="back()">
+          chevron_left
+        </span>
+      </div>
+      <h1>
+        My bookings
+      </h1>
+    </div>
+    <div class="summary" *ngFor="let item of bookings; let i = index">
+      <div class="item">
+
+        <span class="material-icons">
+          date_range
+        </span>
+        <strong> {{item.BookingDate | date: 'mediumDate'}} </strong> <span class="status">{{item.Status}}</span>
+      </div>
+
+      <div class="item">
+
+        <span class="material-icons">
+          av_timer
+        </span>
+        <strong> {{item.TimeId}} </strong>
+      </div>
+
+
+      <!-- <div class="item">
+
+        <a href="https://goo.gl/maps/Ab6cGS5XVkUFB68J8">
+          <span class="material-icons">
+            location_on
+          </span>
+          {{item.Place}}
+        </a>
+      </div> -->
+
+
+
+
+      <div class="item" *ngIf="item.BookingItems">
+        <div class="name">
+          <strong>Experiences booked</strong>
+          <div class="" *ngFor="let ser of item.BookingItems; let ii = index">
+            ◼️ {{ser.ServiceName}} - {{ser.ServicePrice  | currency:'R'}}
+          </div>
+
+          <div class="">
+            <b>Total: {{item.TotalAmount  | currency:'R'}}</b>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- <div class="item">
+
+        <a class="cancel" (click)="cancel()">
+          <span class="material-icons">
+            cancel
+          </span>
+          Cancel booking
+        </a>
+      </div> -->
+
+      <!-- <div class="item">
+        <span class="material-icons">
+          date_range
+        </span>
+        {{item.BookingDate | date: 'shortDate'}} | {{item.TimeId}}
+      </div> -->
+    </div>
+  </div>
+</div>

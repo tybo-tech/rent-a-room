@@ -1,0 +1,18 @@
+<div class="carousel">
+  <div class="slides">
+    <div class="slide"
+         *ngFor="let item of slides; let i = index;"
+         [@slideState]="getAnimationSlideState(i)"
+         [ngClass]="item.Class">
+      <div class="content">
+        <img [src]="item.Url"
+             alt="">
+        <h1>{{item.h1}}</h1>
+        <h1 class="p">{{item.p}}</h1>
+      </div>
+      <div class="">
+      </div>
+    </div>
+
+  </div>
+</div>

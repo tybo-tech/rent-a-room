@@ -1,0 +1,102 @@
+<div class="main">
+  <div *ngIf="bookings" class="success-modal">
+    <div class="modal-header">
+      <div class="back-btn">
+        <span class="material-icons"
+              (click)="back()">
+          chevron_left
+        </span>
+      </div>
+      <h1>
+        All bookings
+      </h1>
+    </div>
+    <div class="summary" *ngFor="let item of bookings; let i = index">
+      <div class="item">
+
+        <span class="material-icons">
+          date_range
+        </span>
+        <strong> {{item.BookingDate | date: 'mediumDate'}} </strong> | {{item.TimeId}}
+      </div>
+
+
+      <div class="item" *ngIf="item.Customer">
+
+        <span class="material-icons">
+          person
+        </span>
+        Customer: <strong> {{item.Customer?.Name}} {{item.Customer?.Surname}} </strong>
+      </div>
+      <div class="item" *ngIf="item.Customer">
+
+        <span class="material-icons">
+          call
+        </span>
+
+        <a href="tel:+{{item.Customer?.PhoneNumber}}">
+          <strong> {{item.Customer?.PhoneNumber}} </strong>
+        </a>
+      </div>
+      <div class="item" *ngIf="item.Customer">
+
+        <span class="material-icons">
+          mail_outline
+        </span>
+        <a href="mailto:{{item.Customer?.Email}}">
+          <strong> {{item.Customer?.Email}} </strong>
+        </a>
+      </div>
+
+
+      <div class="item">
+        <strong> Booking Status...</strong>
+        <select [(ngModel)]="item.Status" (change)="update(item)">
+          <option value="Up coming">Up coming</option>
+          <option value="In progress">In progress</option>
+          <option value="Finished">Finished</option>
+          <option value="Cancelled">Cancelled</option>
+          <option value="Pending Payment">Pending Payment</option>
+          <option value="Payment Cancelled">Payment Cancelled</option>
+          <option value="Pay at salon">Pay at salon</option>
+          <option value="Charge at the salon">Charge at the salon</option>
+        </select>
+      </div>
+
+      <div class="item">
+        <a href="https://goo.gl/maps/Ab6cGS5XVkUFB68J8">
+          <span class="material-icons">
+            location_on
+          </span>
+          {{item.Place}}
+        </a>
+      </div>
+
+      <div class="item" *ngIf="item.BookingItems">
+        <div class="name">
+          <strong>Services</strong>
+          <div class="" *ngFor="let ser of item.BookingItems; let ii = index">
+            ◼️ {{ser.ServiceName}} - {{ser.ServicePrice  | currency:'R'}}
+          </div>
+
+          <div class="warn-img" *ngIf="item.Status === 'Charge at the salon'"></div>
+          <div class="warn-img warn-color" *ngIf="item.Status === 'Pay at salon'"></div>
+          <div class="warn-img secondary-color" *ngIf="item.Status === 'Up coming'"></div>
+          <div class="warn-img primary-color" *ngIf="item.Status === 'Finished'"></div>
+
+          <div class="">
+            <b>Total: {{item.TotalAmount  | currency:'R'}}</b>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- <div class="item">
+        <span class="material-icons">
+          date_range
+        </span>
+        {{item.BookingDate | date: 'shortDate'}} | {{item.TimeId}}
+      </div> -->
+    </div>
+  </div>
+</div>

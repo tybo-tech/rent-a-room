@@ -1,0 +1,52 @@
+<div class="main-list"
+     *ngIf="users">
+
+
+  <div class="main">
+    <div *ngIf="user"
+         class="success-modal">
+
+      <div class="modal-header">
+        <div class="back-btn">
+          <span class="material-icons"
+                (click)="back()">
+            chevron_left
+          </span>
+        </div>
+        <h1>
+          Customers ({{users.length}})
+        </h1>
+      </div>
+      <div class="action">
+        <button mat-button
+                class="mat-primary sec"
+                type="button"
+                (click)="add()">
+          <span class="material-icons"
+                (click)="add()">
+            add
+          </span>
+        </button>
+      </div>
+
+      <div class="summary"
+           *ngFor="let item of users"
+           (click)="view(item)">
+        <div class="item"
+             *ngIf="item.Dp">
+          <img [src]="item.Dp"
+               alt="">
+        </div>
+        <div class="item">
+          {{item.Name}} {{item.Surname}} | {{item.UserType}}
+        </div>
+        <div class="item">
+          {{item.PhoneNumber}}
+        </div>
+        <div class="item">
+          {{item.Email}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

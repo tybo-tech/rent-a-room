@@ -1,0 +1,20 @@
+<div class="main add-screen"
+     *ngIf="user">
+
+  <div class="page-section">
+    <div class="hearder-cols">
+      <h3>
+        <span class="material-icons pointer"
+              (click)="back()">
+          west
+        </span>
+        {{heading}}
+      </h3>
+    </div>
+    <div class="main-list">
+      <div class="more">
+        <app-add-customer [customer]="customer"></app-add-customer>
+      </div>
+    </div>
+  </div>
+</div>

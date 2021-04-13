@@ -1,0 +1,35 @@
+@import '../../../../../assets/styles/color';
+
+.main {
+  padding: 2em 0;
+
+  h1 {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 1em 0;
+  }
+}
+
+.status {
+  padding: .2em .5em;
+  font-size: .7em;
+  border-radius: .2em;
+  // background: $secondary;
+}
+
+
+.cta {
+  position: fixed;
+  z-index: 3000;
+  bottom: 0;
+  width: 100%;
+  padding: 1em;
+  text-transform: uppercase;
+  background: $primary;
+  color: $white;
+  font-weight: 600;
+}
+
+.pay-at-salon{
+    bottom:  4em;
+}

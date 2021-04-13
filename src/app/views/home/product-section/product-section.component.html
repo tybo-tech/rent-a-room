@@ -1,0 +1,8 @@
+<div *ngIf="isLoggedIn">
+  <app-discover></app-discover>
+</div>
+
+<div *ngIf="!isLoggedIn">
+  <app-intro-page></app-intro-page>
+</div>
+<!-- <app-dash-loader *ngIf="showLoader"></app-dash-loader> -->

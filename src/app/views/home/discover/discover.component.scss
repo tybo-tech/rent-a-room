@@ -1,0 +1,65 @@
+@import '../../../../assets/styles/color';
+
+
+.cards {
+  margin-top: 9em;
+}
+
+.menu {
+  position: fixed;
+  width: 100%;
+  height: 2.5em;
+  background: $mid;
+  bottom: 0em;
+  left: 0;
+  border-radius: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  text-align: center;
+
+
+  .item {
+    a {
+      font-size: .8em;
+      color: $darker-grey;
+      text-align: center;
+      padding: .5em;
+      display: block;
+      text-decoration: none;
+
+      .material-icons {
+        top: 0;
+        margin: 0;
+        font-size: 1.2em;
+        display: inline;
+      }
+    }
+
+    .active-link {
+      color: $white;
+    }
+
+
+
+  }
+}
+
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+
+  .filter {
+    background: $city-ligth;
+    margin: .4em;
+    text-align: center;
+    padding: .4em;
+    font-size: .7em;
+    font-weight: 400;
+  }
+
+  .active {
+    color: $cloud;
+    background: $primary;
+  }
+}

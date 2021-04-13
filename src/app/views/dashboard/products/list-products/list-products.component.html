@@ -1,0 +1,41 @@
+<div class="main-list" *ngIf="products$ | async as products">
+
+  <div class="main">
+    <div *ngIf="user" class="success-modal">
+      <div class="back-btn">
+        <span class="material-icons" (click)="back()">
+          chevron_left
+        </span>
+      </div>
+      <h1>
+        Products ({{products.length}})
+      </h1>
+      <div class="action">
+        <button mat-button class="mat-primary sec" type="button" (click)="add()">
+          <span class="material-icons" (click)="add()">
+            add
+          </span>
+        </button>
+      </div>
+
+      <div class="summary" *ngFor="let item of products" (click)="view(item)">
+        <div class="item">
+          <img *ngIf="item.FeaturedImageUrl" [src]="item.FeaturedImageUrl" alt="" class="user-dp">
+          <img *ngIf="!item.FeaturedImageUrl" src="assets/images/icons/add.svg" alt="">
+        </div>
+        <div class="item">
+          {{item.Name}}
+          <span class="cat">
+            {{item.ParentCategoryName}}
+            <b *ngIf="item.CategoryName">| {{item.CategoryName}}</b>
+          </span>
+        </div>
+        <div class="item">
+          {{item.RegularPrice  | currency:'R'}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

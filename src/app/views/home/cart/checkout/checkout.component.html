@@ -1,0 +1,95 @@
+<div class="main" *ngIf="booking">
+
+  <!-- <pre>
+    {{order | json}}
+  </pre> -->
+  
+    <div class="payfast-form">
+      <form ngNoForm   action="https://www.payfast.co.za/eng/process" method="POST">
+        <input type="hidden" name="merchant_id" [value]="merchantId">
+        <input type="hidden" name="merchant_key" [value]="merchantKey">
+        <input type="hidden" name="return_url" [value]="shopingSuccesfulUrl">
+        <input type="hidden" name="cancel_url" [value]="paymentCancelledUrl">
+        <input type="hidden" name="notify_url" [value]="paymentCallbackUrl">
+    
+        <input type="hidden" name="name_first" [value]="user.Name">
+        <input type="hidden" name="name_last" [value]="user.Surname">
+        <input type="hidden" name="email_address" [value]="user.Email">
+        <input type="hidden" name="cell_number" [value]="user.PhoneNumber">
+    
+    
+        <input type="hidden" name="amount" [value]="booking.TotalAmount">
+        <input type="hidden" name="item_name" [value]="productName">
+        <input type="hidden" name="item_description" [value]="productDescription">
+    
+    
+        <input type="hidden" name="email_confirmation" value="1">
+        <input type="hidden" name="confirmation_address" value="payments@tybo.co.za">
+    
+        <button type="submit" class="cta">Pay now online</button>
+        <button type="button" (click)="payAtSalon()" class="cta pay-at-salon">Pay at salon</button>
+      </form>
+    </div>
+  </div>
+
+
+  
+
+
+  <div class="main">
+    <div *ngIf="booking" class="success-modal">
+      <div class="back-btn">
+        <span class="material-icons" (click)="back()">
+          chevron_left
+        </span>
+      </div>
+      <h1>
+        Booking payments
+      </h1>
+      <div class="summary">
+        <div class="item">
+  
+          <span class="material-icons">
+            date_range
+          </span>
+          <strong> {{booking.BookingDate | date: 'mediumDate'}} </strong> <span class="status">{{booking.Status}}</span>
+        </div>
+  
+        <div class="item">
+  
+          <span class="material-icons">
+            av_timer
+          </span>
+          <strong> {{booking.TimeId}} </strong>
+        </div>
+  
+  
+        <div class="item">
+          <a href="https://goo.gl/maps/Ab6cGS5XVkUFB68J8">
+            <span class="material-icons">
+              location_on
+            </span>
+            {{booking.Place}}
+          </a>
+        </div>
+  
+    
+  
+  
+        <div class="item" *ngIf="booking.BookingItems">
+          <div class="name">
+            <strong>Services</strong>
+            <div class="" *ngFor="let ser of booking.BookingItems; let ii = index">
+              ◼️ {{ser.ServiceName}} - {{ser.ServicePrice  | currency:'R'}}
+            </div>
+  
+            <div class="">
+              <b>Total: {{booking.TotalAmount  | currency:'R'}}</b>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

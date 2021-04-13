@@ -1,0 +1,90 @@
+<app-loader [showLoader]="showLoader" *ngIf="showLoader"></app-loader>
+
+<div class="main add-screen" *ngIf="product">
+
+  <div class="page-section">
+    <!-- <h3>
+      <span class="material-icons pointer" (click)="back()">
+        west
+      </span>
+      {{product.Name}} combinations
+    </h3> -->
+    <div class="main-list">
+
+
+      <div class="form-section">
+        <!-- <span class="label">
+          {{product.Name}} combinations
+        </span> -->
+        <div class="products">
+          <div class="headers">
+            <div class="item">
+              Featured Image
+            </div>
+            <div class="item" *ngFor="let item of varationHeadings">
+              {{item}}
+            </div>
+            <div class="item">
+              Quantity
+            </div>
+
+            <div class="item">
+              Price (ZAR)
+              <span class="header-link" *ngIf="product.RegularPrice > 0" (click)="useRegulerPrice()">
+                Use {{product.RegularPrice  | currency:'R'}}
+              </span>
+            </div>
+          </div>
+
+          <div class="line-items" *ngFor="let item of combinations; let i = index">
+
+            <div class="item">
+              <span *ngIf="item.FeaturedImage">
+                <img [src]="item.FeaturedImage" alt="" class="featured-image">
+                <p class="gallery">
+                  Gallery
+                </p>
+              </span>
+              <span *ngIf="!item.FeaturedImage">
+                <input type="file" #file placeholder="Choose file" multiple (change)="uploadFile(file.files, i)"
+                  style="display:none;">
+                <button mat-button class="btn-uplaod" (click)="file.click()">
+                  📷 Add product image
+                </button>
+              </span>
+
+            </div>
+            <div class="item">
+              <p class="unit-price">
+                {{item.CombinationString}}
+              </p>
+            </div>
+            <div class="item">
+              <input type="number" [(ngModel)]="item.AvailabelStock">
+            </div>
+
+            <div class="item">
+              <input type="number" [(ngModel)]="item.Price">
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="form-section">
+        <div class="create-cta">
+          <div class="action">
+            <button mat-button class="mat-primary" type="button" (click)="save()">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>

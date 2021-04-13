@@ -1,0 +1,15 @@
+@import '../job-cards/job-cards.component.scss';
+@import '../../../../../assets/styles/color';
+
+.main-list {
+  background: $white
+}
+
+.create-cta {
+  text-align: left;
+}
+
+.modal {
+  left: 12%;
+  width: 80%;
+}

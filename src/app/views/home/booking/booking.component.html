@@ -1,0 +1,156 @@
+<div class="main" >
+  <app-home-nav [showNav]="true" [hideTabs]="true"></app-home-nav>
+</div>
+<div *ngIf="experience" class="all">
+  <div class="product">
+    <div class="main-image">
+      <img [src]="experience.FeaturedImageUrl" (swipeleft)="handleSwipe('left')" (swiperight)="handleSwipe('right')"
+        alt="">
+      <div class="tiles" *ngIf="experience.Images && experience.Images.length && experience.Images.length > 1">
+        <div class="tile" *ngFor="let image of experience.Images" (click)="selectImage(image)">
+          <img [src]="image.Url" alt="">
+        </div>
+      </div>
+      <button class="back" (click)="back()">
+        <span class="material-icons">
+          chevron_left
+        </span>
+      </button>
+    </div>
+    <div class="product-information">
+      <h1 class="h1">
+        {{experience.Name}}
+
+        <span class="price">
+          {{experience.RegularPrice | currency:'R'}}
+        </span>
+        <span class="description">
+          {{experience.Description}}
+        </span>
+      </h1>
+
+      <div class="booking" *ngIf="booking.BookingDate && booking.TimeId">
+        <div class="action">
+          <button *ngIf="experience.ParentCategoryName != 'Shopping'" class="mat-primary add-to-cart" mat-button
+            color="primary" (click)="addToCart()">
+            Add this service to booking
+          </button>
+          <button *ngIf="experience.ParentCategoryName == 'Shopping'" class="mat-primary add-to-cart" mat-button
+            color="primary" (click)="addToCart()">
+            Add to cart
+          </button>
+        </div>
+
+      </div>
+
+
+      <div *ngIf="showBookingDateTime" class="initaite-booking">
+
+
+        <div class="booking">
+          <div class="input">
+            <label>Choose booking date</label>
+            <input [(ngModel)]="booking.BookingDate" type="date">
+          </div>
+        </div>
+
+        <div class="booking">
+          <div class="input">
+            <div class="tarvellers" (click)="chooseTravellers()">
+              {{TravellersLabelTotal}}
+            </div>
+          </div>
+        </div>
+
+        <div class="booking" *ngIf="booking.BookingDate">
+
+
+
+          <div class="action">
+            <button class="mat-primary add-to-cart" [disabled]="!booking.BookingDate" mat-button color="primary"
+              (click)="book()">
+              Book now 
+            </button>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="quick-add" *ngIf="showTravellers && bookingItem">
+  <div class="form">
+    <h3>
+      Number of travellers.
+    </h3>
+
+
+    <div class="form-item form-item-grid">
+      <label for="">Adults</label>
+      <select name="" id="" [(ngModel)]="bookingItem.Adults" (change)="caculateTravellers()">
+        <option [value]="item" *ngFor="let item of maxOptions">{{item}}</option>
+      </select>
+    </div>
+
+
+    <div class="form-item form-item-grid">
+      <label for="">Children</label>
+      <select name="" id="" [(ngModel)]="bookingItem.Children" (change)="caculateTravellers()">
+        <option [value]="item" *ngFor="let item of maxOptions">{{item}}</option>
+      </select>
+    </div>
+
+
+
+    <div class="form-item form-item-grid">
+      <label for="">Infants</label>
+      <select name="" id="" [(ngModel)]="bookingItem.Infants" (change)="caculateTravellers()">
+        <option [value]="item" *ngFor="let item of maxOptions">{{item}}</option>
+      </select>
+    </div>
+
+    <div class="form-item">
+      <button (click)="showTravellers = false">Done</button>
+      <!-- <div class="link" (click)="showTravellers = false">Cancel</div> -->
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="success-modal done-model" *ngIf="showDone">
+  <h1>
+    <span class="material-icons check">
+      check_circle_outline
+    </span>
+  </h1>
+  <h1>
+    Your booking was successful
+  </h1>
+
+  <button (click)="back()">Home</button>
+  <button (click)="bookings()">Go to my bookings</button>
+</div>
+
+
+<div class="overlay" *ngIf="showModal" (click)="closeModal()"></div>
+<div class="mosdal" *ngIf="showModal">
+  <div class="close" (click)="closeModal()">
+    <span class="material-icons">
+      west
+    </span> {{modalHeading}}
+  </div>
+
+  <div class="body">
+    <app-sign-up-modal (userLoggedInDone)="userLoggedInDone($event)"></app-sign-up-modal>
+  </div>
+</div>

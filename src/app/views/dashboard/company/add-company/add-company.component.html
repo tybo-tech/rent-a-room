@@ -1,0 +1,108 @@
+   <form class="default-form"
+         *ngIf="company">
+     <div class="form-group">
+       <div class="upload">
+         <input type="file"
+                #file
+                placeholder="Choose file"
+                multiple
+                (change)="uploadFile(file.files)"
+                style="display:none;"
+                accept="image/*">
+         <button mat-button
+                 class="upload-button"
+                 (click)="file.click()"
+                 *ngIf="!company.Dp">
+           <span class="material-icons">
+             photo
+           </span>
+         </button>
+         <div class="upload-button image"
+              (click)="file.click()"
+              *ngIf="company.Dp">
+           <img [src]="company.Dp"
+                alt="">
+         </div>
+
+       </div>
+     </div>
+     <div class="form-group">
+       <label for="exampleInputName">Name</label>
+       <input type="text"
+              class="form-control"
+              id="exampleInputFirstName"
+              placeholder="Enter Company Name"
+              [(ngModel)]="company.Name"
+              [ngModelOptions]="{standalone: true}">
+     </div>
+     <div class="form-group">
+       <label for="exampleInputName">Company Description
+         <span>Fill in your company description in a way that tourists will be attracted</span>
+       </label>
+       <textarea type="text"
+                 class="form-control"
+                 id="exampleInputFirstName"
+                 placeholder="Enter Company Description"
+                 [(ngModel)]="company.Description"
+                 [ngModelOptions]="{standalone: true}"></textarea>
+     </div>
+     <div class="form-group">
+       <label for="exampleInputName">Bank Name</label>
+       <input type="text"
+              class="form-control"
+              id="exampleInputFirstName"
+              placeholder="Bank Name"
+              [(ngModel)]="company.BankName"
+              [ngModelOptions]="{standalone: true}">
+     </div>
+     <div class="form-group">
+       <label for="exampleInputName">Account Number</label>
+       <input type="text"
+              class="form-control"
+              id="exampleInputFirstName"
+              placeholder="Account Number"
+              [(ngModel)]="company.BankAccNo"
+              [ngModelOptions]="{standalone: true}">
+     </div>
+     <div class="form-group">
+       <label for="exampleInputName">Account Holder</label>
+       <input type="text"
+              class="form-control"
+              id="exampleInputFirstName"
+              placeholder="Account Holder"
+              [(ngModel)]="company.BankAccHolder"
+              [ngModelOptions]="{standalone: true}">
+     </div>
+     <span class="col-1-of-2">
+       <div class="form-group">
+         <label for="exampleInputName">Branch Name</label>
+         <input type="text"
+                class="form-control"
+                id="exampleInputFirstName"
+                placeholder="Branch Name"
+                [(ngModel)]="company.BankBranch"
+                [ngModelOptions]="{standalone: true}">
+       </div>
+       <div class="form-group">
+         <label for="exampleInputName">Branch Code</label>
+         <input type="text"
+                class="form-control"
+                id="exampleInputFirstName"
+                placeholder="Branch Code (2555)"
+                [(ngModel)]="company.BankBranchCode"
+                [ngModelOptions]="{standalone: true}">
+       </div>
+     </span>
+
+     <div class="form-group">
+       <button mat-button
+               color="primary"
+               class="mat-primary"
+               [disabled]="!company.Name"
+               (click)="save()">
+         Save and Continue
+       </button>
+     </div>
+   </form>
+
+   <!-- <app-dashboard-loader [loader]="showLoader" [message]="'Processing...'"></app-dashboard-loader> -->

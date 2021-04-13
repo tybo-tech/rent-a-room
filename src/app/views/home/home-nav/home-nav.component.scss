@@ -1,0 +1,159 @@
+@import '../../../../assets/styles/color';
+
+.top-nav {
+  height: 3.6em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $white;
+  z-index: 1001;
+  color: $primary;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  padding-top: .5em;
+  box-shadow: $box-shadow;
+
+  .col {
+    padding: 0 1em;
+
+    img {
+      height: 2.5em;
+    }
+  }
+
+  .menu {
+    text-align: left;
+    position: relative;
+
+    .material-icons {
+      top: .5em;
+    }
+
+    .cart-icon {
+      left: 1em;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0.21em;
+      right: 1em;
+      width: 2em;
+      height: 2em;
+      border-radius: 1em;
+      background: $tec;
+      color: $white;
+      text-align: center;
+      padding: .4em;
+      font-weight: 600;
+      font-size: .65em;
+
+    }
+  }
+}
+
+.tabs {
+  background: $white;
+  position: fixed;
+  top: 3.5em;
+  width: 100%;
+  padding-top: 1em;
+  // height: 3em;
+  display: flex;
+  z-index: 1000;
+  // grid-template-columns: repeat(4, 25%);
+  overflow-x: scroll;
+
+  .tab {
+    color: $black;
+    // padding: 1em .1em;
+    text-align: center;
+    font-size: .9em;
+    padding-bottom: 1em;
+    font-weight: 600;
+    width: fit-content;
+    margin: .5em 1em;
+
+    span {
+      display: block;
+      margin-bottom: .4em;
+    }
+  }
+
+  .active {
+    background: $white;
+    color: $primary !important;
+  }
+}
+
+.side-nav,
+.side-nav-overlay {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  background: $mid;
+  z-index: 2000;
+  animation: moveInLeft .2s ease-out 0s;
+  animation-fill-mode: backwards;
+  padding-top: 1em;
+
+  .nav-item {
+    img {
+      width: 100%;
+      padding: 1em;
+    }
+
+    .cta {
+      padding: .5rem;
+      text-align: center;
+      margin: 0 1rem;
+      background: #EBEBEB;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: 1.2em;
+      color: $cloud;
+      padding: 0 1.1em;
+      margin-top: 2em;
+
+    }
+  }
+}
+
+.side-nav-overlay {
+  width: 100%;
+  z-index: 1900;
+  background: rgba(48, 46, 39, 0.596);
+  animation: fadeIn .1s ease-out 0s;
+  animation-fill-mode: backwards;
+
+}
+
+.profile {
+  background: $cloud;
+  color: $mid;
+  width: 3em;
+  height: 3em;
+  border-radius: 3em;
+  padding: .7em;
+  margin: .5em auto;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hi {
+  text-transform: capitalize;
+  text-align: center;
+  color: $cloud;
+  margin-bottom: 1em;
+
+  a {
+    color: $cloud;
+    text-decoration: none;
+  }
+}

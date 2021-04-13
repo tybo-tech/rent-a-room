@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="229" height="229" viewBox="0 0 229 229">
+  <g id="no-scale" transform="translate(-82 -287)">
+    <g id="Ellipse_84" data-name="Ellipse 84" transform="translate(82 287)" fill="#fff" stroke="rgba(252,0,0,0.43)" stroke-width="25">
+      <circle cx="114.5" cy="114.5" r="114.5" stroke="none"/>
+      <circle cx="114.5" cy="114.5" r="102" fill="none"/>
+    </g>
+    <g id="body-weighing-scale-tool" transform="translate(135.193 340.193)">
+      <path id="Path_190" data-name="Path 190" d="M110.154,0H13.324A13.325,13.325,0,0,0,0,13.324v96.83a13.326,13.326,0,0,0,13.324,13.323h96.83a13.325,13.325,0,0,0,13.323-13.323V13.324A13.322,13.322,0,0,0,110.154,0ZM88.515,13.878l-9.907,14.7a29.041,29.041,0,0,0-16.555-5.251L54.938,11.264l-1.753.95L58.8,23.525a30.734,30.734,0,0,0-13.3,4.834L34.967,14.1C36.014,13.321,60.993-4.67,88.515,13.878Zm19.973,82.146a13.325,13.325,0,0,1-13.324,13.324H28.093A13.325,13.325,0,0,1,14.769,96.024V48.969A13.324,13.324,0,0,1,28.093,35.645H95.162a13.324,13.324,0,0,1,13.324,13.324l0,47.055Z"/>
+    </g>
+    <line id="Line_58" data-name="Line 58" y1="122.614" x2="156.874" transform="translate(113.104 346.053)" fill="none" stroke="#fe9191" stroke-width="30" opacity="0.9"/>
+  </g>
+</svg>

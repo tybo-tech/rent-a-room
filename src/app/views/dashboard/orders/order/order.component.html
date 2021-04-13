@@ -1,0 +1,151 @@
+<div class="main" *ngIf="order">
+
+  <div class="main-list">
+
+    <div class="create-cta">
+      <div class="">
+        <h1>
+          <span class="material-icons pointer" (click)="back()">
+            west
+          </span>
+          Invoice {{order.OrderNo}}
+        </h1>
+      </div>
+      <div class="action">
+        <button mat-button class="mat-primary sec" type="button" (click)="print()">
+          Capture payment
+        </button>
+      </div>
+      <div class="action">
+        <button mat-button class="mat-primary sec" type="button" (click)="print()">
+          Print Invoice
+        </button>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <span class="label">
+        Customer details
+      </span>
+      <div class="details" *ngIf="order.Customer">
+
+        <div class="detail">
+          <label for="name">Customer Name</label>
+          <input type="text" [(ngModel)]="order.Customer.Name" disabled>
+
+        </div>
+        <div class="detail">
+          <label for="name">Customer Surname</label>
+          <input type="text" [(ngModel)]="order.Customer.Surname" disabled>
+        </div>
+        <div class="detail">
+          <label for="name">Customer Email</label>
+          <input type="text" [(ngModel)]="order.Customer.Email" disabled>
+        </div>
+        <div class="detail">
+          <label for="name">Customer Phone Number</label>
+          <input type="text" [(ngModel)]="order.Customer.PhoneNumber" disabled>
+        </div>
+        <div class="detail">
+          <label for="name">Customer Address</label>
+          <input type="search" [(ngModel)]="order.Customer.Address" disabled>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    <div class="form-section">
+      <span class="label">
+        Invoice details
+      </span>
+
+      <div class="details">
+
+        <div class="detail">
+          <label for="name">Invoice Number</label>
+          <input type="text" [(ngModel)]="order.OrderNo" disabled>
+
+        </div>
+        <div class="detail">
+          <label for="name">Invoice Date</label>
+          <input matInput [matDatepicker]="picker1" [(ngModel)]="order.InvoiceDate" disabled>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </div>
+        <div class="detail">
+          <label for="name">Invoice Due Date</label>
+          <input matInput [matDatepicker]="picker2" [(ngModel)]="order.DueDate" disabled>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <div class="form-section">
+      <span class="label">
+        Invoice items
+      </span>
+      <div class="products">
+        <div class="headers">
+          <div class="item">
+            Item name
+          </div>
+          <div class="item">
+            Price
+          </div>
+          <div class="item">
+            Quantity
+          </div>
+
+          <div class="item">
+            Total
+          </div>
+        </div>
+
+        <div class="line-items" *ngFor="let item of order.Orderproducts; let i = index">
+          <div class="item">
+            <input type="text" [(ngModel)]="item.ProductName" disabled>
+          </div>
+          <div class="item">
+            <p class="unit-price">
+              {{item.UnitPrice   | currency:'R'}}
+            </p>
+          </div>
+          <div class="item">
+            <input type="number" [(ngModel)]="item.Quantity" disabled>
+          </div>
+
+          <div class="item">
+            <p>
+              {{item.SubTotal   | currency:'R'}}
+            </p>
+          </div>
+        </div>
+
+        <div class="total item">
+          <p>
+            <span class="label">Total: </span>
+            {{order.Total   | currency:'R'}}
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="form-section">
+      <span class="label">
+        Customer Notes
+      </span>
+
+      <textarea type="text" [(ngModel)]="order.Notes" disabled placeholder="No Customer  notes">
+        </textarea>
+    </div>
+
+  </div>
+</div>

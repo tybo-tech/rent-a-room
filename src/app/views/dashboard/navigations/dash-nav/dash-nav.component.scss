@@ -1,0 +1,40 @@
+@import '../../../../../assets/styles/color';
+
+.nav {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $primary;
+  height: 76vh;
+  box-sizing: border-box;
+
+  .logo {
+    text-align: center;
+    padding: 4em 0;
+
+    img {
+      width: 5em;
+    }
+  }
+
+  ul {
+    li {
+      padding:0;
+      a {
+        color: $white;
+        text-decoration: none;
+        font-size: .8em;
+        display: block;
+        padding: 1em 2em;
+      }
+    }
+  }
+}
+
+
+.active-link{
+  // background: $white;
+  background: #34495e;
+  // color: $primary !important;
+}

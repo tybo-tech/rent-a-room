@@ -1,0 +1,51 @@
+<div class="main">
+  <div *ngIf="times" class="success-modal">
+    <div class="back-btn">
+      <span class="material-icons" (click)="back()">
+        chevron_left
+      </span>
+    </div>
+    <h1>
+      Booking time slots
+    </h1>
+    <div class="summary" *ngFor="let item of times; let i = index">
+      <div class="item">
+
+        <span class="material-icons">
+          av_timer
+        </span>
+        <strong> {{item.TimeId}} </strong>
+      </div>
+      <div class="item">
+        Current Capacity: <strong> {{item.CurrentCapacity}} </strong>
+      </div>
+
+      <div class="item">
+        <strong> Max Capacity </strong>
+        <select [(ngModel)]="item.MaxCapacity" (change)="update(item)">
+          <option value="1">1 Booking</option>
+          <option value="2">2 Booking</option>
+          <option value="3">3 Booking</option>
+          <option value="4">4 Booking</option>
+          <option value="5">5 Booking</option>
+        </select>
+      </div>
+
+      <div class="item">
+        <strong>  Capacity Status</strong>
+        <select [(ngModel)]="item.StatusId" (change)="update(item)">
+          <option value="1">Open</option>
+          <option value="2">Fully booked</option>
+          <option value="3">In active</option>
+        </select>
+      </div>
+
+      <!-- <div class="item">
+        <span class="material-icons">
+          date_range
+        </span>
+        {{item.BookingDate | date: 'shortDate'}} | {{item.TimeId}}
+      </div> -->
+    </div>
+  </div>
+</div>

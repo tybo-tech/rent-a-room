@@ -1,0 +1,32 @@
+<div class="main add-screen" *ngIf="product">
+
+  <div class="page-section">
+  <div class="hearder-cols">
+    <!-- <img *ngIf="product.FeaturedImageUrl" [src]="product.FeaturedImageUrl" class="f-icon" alt="">
+    <div class="" *ngIf="!product.FeaturedImageUrl"></div> -->
+    <h3>
+      <span class="material-icons pointer" (click)="back()">
+        west
+      </span>
+      {{heading}}
+    </h3>
+  </div>
+    <div class="main-list">
+      <div class="more">
+        <mat-tab-group class="box-shadow" (selectedTabChange)="onTabChanged($event)" [selectedIndex]="selectedIndex">
+          <mat-tab label="1️⃣ Product Details">
+            <app-add-product [existingProduct]="product" (addingProductFinished)="addingProductFinished($event)">
+            </app-add-product>
+          </mat-tab>
+          <!-- <mat-tab label="2️⃣ Colour & Sizes" *ngIf="ProductId != 'add'">
+            <app-product-variations></app-product-variations>
+          </mat-tab>
+          <mat-tab label="3️⃣ Product variations" *ngIf="ProductId != 'add' && product.ProductVariations">
+            <app-product-combinations></app-product-combinations>
+          </mat-tab> -->
+
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

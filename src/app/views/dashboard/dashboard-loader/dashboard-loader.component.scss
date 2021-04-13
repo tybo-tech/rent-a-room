@@ -1,0 +1,31 @@
+@import '../../../../assets/styles/color';
+
+.spinner {
+  z-index: 2000;
+}
+.overlay {
+  padding: 10rem 0;
+}
+.mat-spinner{
+  margin: 1rem auto;
+}
+
+p {
+  text-align: center;
+}
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $primary;
+}
+
+
+.loader {
+  padding: 10rem 0;
+  .card {
+    width: 15rem;
+    background: $white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+}

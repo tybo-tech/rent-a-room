@@ -1,0 +1,113 @@
+<app-loader [showLoader]="showLoader" *ngIf="showLoader"></app-loader>
+
+<div class="main">
+
+  <div class="page-section">
+
+    <div class="main-list">
+
+      <div class="form-section">
+        <div class="col-1-of-2">
+          <div class="col">
+            <div class="detail">
+              <label for="name">Product Name *</label>
+              <input type="text" [(ngModel)]="product.Name" placeholder="e.g. Floral summer shirts">
+            </div>
+            <div class="detail" *ngIf="product.PriceFrom == 0">
+              <label for="name">Price (ZAR)</label>
+              <input type="number" [(ngModel)]="product.RegularPrice" placeholder="How much your selling for?">
+            </div>
+
+            <div class="detail" *ngIf="product.PriceFrom > 0">
+              <label for="name">Price (ZAR)</label>
+              <span class="range">
+                {{product.PriceFrom  | currency:'R'}} - {{product.PriceTo  | currency:'R'}}
+              </span>
+            </div>
+            <div class="detail">
+              <label for="name">Product catergory</label>
+              <select [(ngModel)]="product.ParentCategoryName">
+                <option value="Saloon">Salon</option>
+                <option value="Laundry">Laundry</option>
+                <option value="Car wash">Car wash</option>
+                <option value="Shopping">Shopping</option>
+              </select>
+            </div>
+
+            <div class="detail" *ngIf="product.ParentCategoryName == 'Saloon'">
+              <label for="name">Hiar style type</label>
+              <select [(ngModel)]="product.CategoryName">
+                <option value="Straight back">Straight back</option>
+                <option value="Snoopy">Snoopy</option>
+                <option value="Bonding">Bonding</option>
+                <option value="Haircuts">Haircuts</option>
+                <option value="Dreads">Dreads</option>
+                <option value="Weaves">Weaves</option>
+                <option value="Relaxers">Relaxers</option>
+                <option value="Treatments">Treatments</option>
+                
+                <option value="Other">Other</option>
+              </select>
+            </div>
+<!-- 
+            <div class="detail">
+              <label for="name">Product status</label>
+              <select [(ngModel)]="product.CategoryName">
+                <option value="Show to customer">Show to customer</option>
+                <option value="Do not show to customer">Do not show to customer</option>
+              </select>
+            </div> -->
+        
+            <div class="upload-preview">
+              <div class="upload">
+                <!-- <label for="name">Product image</label> -->
+                <input type="file" #file placeholder="Choose file" multiple (change)="uploadFile(file.files)"
+                  style="display:none;">
+                <button mat-button class="btn-uplaod" (click)="file.click()">
+                  📷 Set product image
+                </button>
+              </div>
+              <div class="preview">
+                <img *ngIf="product.FeaturedImageUrl" [src]="product.FeaturedImageUrl" alt="">
+              </div>
+
+              <hr>
+
+              <button mat-button class="mat-primary" [disabled]="!product.Name" type="button" (click)="saveProduct()">
+                Save product
+              </button>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="detail">
+              <div class="detail">
+                <label for="name">Notes *</label>
+                <textarea name="" [(ngModel)]="product.Notes"
+                  placeholder="e.g. Note: Online service coming soon"></textarea>
+              </div>
+              <div class="detail">
+                <label for="name">Description *</label>
+                <textarea name="" [(ngModel)]="product.Description"
+                  placeholder="Tell customers how it works"></textarea>
+              </div>
+
+
+              <div class="create-cta">
+                <div class="action">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+    </div>
+  </div>
+  <app-user-feedback *ngIf="showModal" [modalModel]="modalModel"></app-user-feedback>
