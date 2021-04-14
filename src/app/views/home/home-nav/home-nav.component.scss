@@ -17,6 +17,10 @@
   .col {
     padding: 0 1em;
 
+    &:last-child {
+      text-align: right;
+    }
+
     img {
       height: 2.5em;
     }

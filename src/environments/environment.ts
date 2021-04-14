@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // API_URL: 'http://localhost:8200/carvidae-api',
-  API_URL: 'https://cervidae.co.za/api',
+  API_URL: 'https://ilumu.tybo.co.za/api',
 
   BASE_URL: 'http://localhost:4200',
   ACCOUNT_TEST_EMAIL: 'john@gmail.com',

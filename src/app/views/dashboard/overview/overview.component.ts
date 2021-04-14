@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Address, Company } from 'src/models';
 import { Experience } from 'src/models/modal.experience';
 import { User } from 'src/models/user.model';
+import { TablsModel, tabsListDF } from 'src/models/UxModel.model';
 import { CompanyService } from 'src/services';
 import { AccountService } from 'src/services/account.service';
 import { AddressService } from 'src/services/address.service';
@@ -21,7 +22,7 @@ export class OverviewComponent implements OnInit {
   experiences: Experience[];
   newExperience: Experience;
   showAdd: boolean;
-
+  tabsList: TablsModel[] = tabsListDF;
   constructor(
     private accountService: AccountService,
     private router: Router,

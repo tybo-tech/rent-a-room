@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/models';
 import { Images } from 'src/models/images.model';
 import { Experience } from 'src/models/modal.experience';
-import { MessageDialogUx } from 'src/models/UxModel.model';
+import { MessageDialogUx, TablsModel, tabsListDF } from 'src/models/UxModel.model';
 import { AccountService } from 'src/services';
 import { ExperienceService } from 'src/services/experience.service';
 import { ImagesService } from 'src/services/images.service';
@@ -21,6 +21,7 @@ export class AddExperienceComponent implements OnInit {
   experienceId: any;
   experience: Experience;
   dialogUx: MessageDialogUx = {};
+  tabsList: TablsModel[] = tabsListDF;
   constructor(
     private router: Router,
     private experienceService: ExperienceService,
@@ -43,7 +44,7 @@ export class AddExperienceComponent implements OnInit {
 
   saveExperience() {
     this.experience.ExperienceSlug = this.experienceService.generateSlug(this.experience.Name, this.experience.Code, '');
-  this.uxService.showLoader();
+    this.uxService.showLoader();
     this.experienceService.update(this.experience).subscribe(data => {
       if (data && data.ExperienceId) {
         setTimeout(() => {
@@ -51,7 +52,7 @@ export class AddExperienceComponent implements OnInit {
           this.dialogUx.CtaLabel = 'Go to experience list';
           this.dialogUx.Message = 'Experience information has been saved successfully';
           this.dialogUx.IsSuccess = true;
-          this.dialogUx.CtaNav ='dashboard/list-experiences';
+          this.dialogUx.CtaNav = 'dashboard/list-experiences';
           this.dialogUx.NavigateTo = 'dashboard/list-experiences';
           this.dialogUx.ShowDialog = true;
           this.dialogUx.IconUrl = 'assets/images/common/check.svg';

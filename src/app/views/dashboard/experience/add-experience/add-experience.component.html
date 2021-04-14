@@ -23,15 +23,12 @@
     <div class="form-item">
       <label for="name">Catergory</label>
       <select [(ngModel)]="experience.ParentCategoryName">
-        <option value="Adventure">Adventure</option>
-        <option value="Nature">Nature</option>
-        <option value="Sights-tours">Sights & tours</option>
-        <option value="Luxury">Luxury</option>
+        <option *ngFor="let item of tabsList" [value]="item.Value">{{item.Name}}</option>
       </select>
     </div>
 
     <div class="form-item">
-      <label for="">Price(per person)</label>
+      <label for="">Price(per month)</label>
       <input type="number" name="" id="" [(ngModel)]="experience.RegularPrice" placeholder="Enter experience price.">
     </div>
 

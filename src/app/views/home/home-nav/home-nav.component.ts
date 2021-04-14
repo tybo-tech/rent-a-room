@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Company, NavigationModel, User } from 'src/models';
 import { Booking } from 'src/models/booking.model';
+import { TablsModel, tabsListDF } from 'src/models/UxModel.model';
 import { AccountService, CompanyService, NavigationService } from 'src/services';
 import { BookingService } from 'src/services/booking.service';
 import { CUSTOMER, PARTNER } from 'src/shared/constants';
@@ -26,12 +27,7 @@ export class HomeNavComponent implements OnInit {
   showCart: boolean;
   navigate: NavigationModel = {};
   company: Company;
-  tabsList: TablsModel[] = [
-    { Name: 'Adventure', Value: 'Adventure', Class: ['active'], Icon: 'hiking' },
-    { Name: 'Nature', Value: 'Nature', Class: [], Icon: 'local_florist' },
-    { Name: ' Sights & tours', Value: 'Sights-tours', Class: [], Icon: 'tour' },
-    { Name: 'Luxury', Value: 'Luxury', Class: [], Icon: 'star' },
-  ];
+  tabsList: TablsModel[] = tabsListDF;
   constructor(
     private navigationService: NavigationService,
     private accountService: AccountService,
@@ -119,9 +115,3 @@ export class HomeNavComponent implements OnInit {
 }
 
 
-export interface TablsModel {
-  Name: string;
-  Value: string;
-  Class: string[];
-  Icon: string;
-}

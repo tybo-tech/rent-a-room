@@ -19,9 +19,9 @@
 
 <div class="tabs" *ngIf="!hideTabs">
   <div class="tab"  *ngFor="let item of tabsList" (click)="tab(item)"  [ngClass]="item.Class">
-    <span class="material-icons">
+    <!-- <span class="material-icons">
       {{item.Icon}}
-    </span>
+    </span> -->
     {{item.Name}}
   </div>
 

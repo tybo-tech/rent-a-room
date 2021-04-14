@@ -29,25 +29,12 @@
         </span>
       </h1>
 
-      <div class="booking" *ngIf="booking.BookingDate && booking.TimeId">
-        <div class="action">
-          <button *ngIf="experience.ParentCategoryName != 'Shopping'" class="mat-primary add-to-cart" mat-button
-            color="primary" (click)="addToCart()">
-            Add this service to booking
-          </button>
-          <button *ngIf="experience.ParentCategoryName == 'Shopping'" class="mat-primary add-to-cart" mat-button
-            color="primary" (click)="addToCart()">
-            Add to cart
-          </button>
-        </div>
-
-      </div>
 
 
       <div *ngIf="showBookingDateTime" class="initaite-booking">
 
 
-        <div class="booking">
+        <!-- <div class="booking">
           <div class="input">
             <label>Choose booking date</label>
             <input [(ngModel)]="booking.BookingDate" type="date">
@@ -60,16 +47,16 @@
               {{TravellersLabelTotal}}
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="booking" *ngIf="booking.BookingDate">
+        <div class="booking" *ngIf="booking.BookingDate || 1">
 
 
 
           <div class="action">
-            <button class="mat-primary add-to-cart" [disabled]="!booking.BookingDate" mat-button color="primary"
+            <button class="mat-primary add-to-cart" [disabled]="!booking.BookingDate && !1" mat-button color="primary"
               (click)="book()">
-              Book now 
+              Contact agent
             </button>
           </div>
 

@@ -30,8 +30,8 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: '', component: PartnerWelcomeComponent },
-      // { path: '', component: DiscoverComponent },
+      // { path: '', component: PartnerWelcomeComponent },
+      { path: '', component: DiscoverComponent },
       { path: 'shop', component: ShopComponent },
       { path: 'my-home', component: MyProfileComponent },
       { path: 'sign-in', component: SignInComponent },

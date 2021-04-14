@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocaleProductsModel, Product, User } from 'src/models';
 import { Experience } from 'src/models/modal.experience';
+import { tabsListDF } from 'src/models/UxModel.model';
 import { ProductService, AccountService } from 'src/services';
 import { BookingService } from 'src/services/booking.service';
 import { ExperienceService } from 'src/services/experience.service';
@@ -85,7 +86,7 @@ export class DiscoverComponent implements OnInit {
     this.experienceService.experienceListObservable.subscribe(data => {
       console.log('Experiences: ', data);
       this.allExperiences = data;
-      this.experiences = this.allExperiences.filter(x => x.ParentCategoryName === 'Adventure');
+      this.experiences = this.allExperiences.filter(x => x.ParentCategoryName === tabsListDF[0].Name);
     });
     // }
   }
